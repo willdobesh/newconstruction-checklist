@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Construction True Cost Calculator | Will Dobesh</title>
+<meta name="description" content="See what a new construction home in Utah County really costs once lot premiums, structural upgrades, and design center choices are added to the base price.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #000000;
+    --white: #ffffff;
+    --gold: #e6ae37;
+    --gold-light: #fad77b;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #e4e1dc;
+    --soft: #f7f5f1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+
+  /* Header */
+  .top {
+    background: var(--black);
+    color: var(--white);
+    padding: 18px 20px;
+  }
+  .top-inner {
+    max-width: 1080px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .brand { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.5rem; font-weight: 600; letter-spacing: .02em; }
+  .brand span { color: var(--gold); }
+  .back { font-size: .9rem; text-decoration: none; color: var(--gold-light); }
+  .back:hover { text-decoration: underline; }
+
+  /* Hero */
+  .hero {
+    background: var(--black); color: var(--white);
+    padding: 56px 20px 72px;
+  }
+  .hero-inner { max-width: 760px; margin: 0 auto; }
+  .eyebrow {
+    font-size: .78rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.3rem, 6vw, 3.6rem); line-height: 1.05; font-weight: 600;
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--gold-light); }
+  .hero p { color: #d8d8d8; font-size: 1.08rem; max-width: 620px; }
+
+  /* Layout */
+  main { max-width: 1080px; margin: -40px auto 0; padding: 0 20px 80px; }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+  @media (min-width: 900px) { .grid { grid-template-columns: 1.1fr .9fr; align-items: start; } }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 32px 28px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.06);
+  }
+  .card h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.75rem; font-weight: 600; margin-bottom: 6px;
+  }
+  .card .sub { color: var(--muted); font-size: .95rem; margin-bottom: 26px; }
+
+  .section-label {
+    font-size: .74rem; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--muted); font-weight: 700; margin: 30px 0 14px;
+    padding-top: 22px; border-top: 1px solid var(--line);
+  }
+  .section-label:first-of-type { margin-top: 0; padding-top: 0; border-top: 0; }
+
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-weight: 500; margin-bottom: 6px; }
+  .field .hint { font-size: .86rem; color: var(--muted); margin-top: 6px; }
+  .input-wrap { position: relative; }
+  .input-wrap .pre, .input-wrap .post {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    color: var(--muted); font-weight: 500; pointer-events: none;
+  }
+  .input-wrap .pre { left: 14px; }
+  .input-wrap .post { right: 14px; }
+  input, select {
+    width: 100%; font: inherit; font-size: 1.05rem;
+    padding: 13px 14px 13px 28px;
+    border: 1px solid #cfcac2; border-radius: 10px;
+    background: var(--white); color: var(--ink);
+    transition: border-color .15s, box-shadow .15s;
+  }
+  input.no-pre { padding-left: 14px; padding-right: 36px; }
+  select { padding-left: 14px; appearance: none; cursor: pointer;
+    background-image: linear-gradient(45deg, transparent 50%, #777 50%), linear-gradient(135deg, #777 50%, transparent 50%);
+    background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%;
+    background-size: 5px 5px; background-repeat: no-repeat; }
+  input:focus, select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(230,174,55,.22); }
+  input::placeholder { color: #a8a39b; }
+
+  .dc-field input { border-style: dashed; }
+  .dc-field input.filled { border-style: solid; }
+  .dc-note {
+    background: var(--soft); border-left: 3px solid var(--gold);
+    padding: 12px 14px; border-radius: 0 8px 8px 0;
+    font-size: .9rem; margin-top: 10px;
+  }
+  .dc-note strong { color: var(--ink); }
+
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  /* Results */
+  .results { position: sticky; top: 20px; background: var(--black); color: var(--white); border-color: var(--black); }
+  .results h2 { color: var(--white); }
+  .results .sub { color: #a9a9a9; }
+  .line {
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 10px 0; border-bottom: 1px solid #262626; font-size: .98rem;
+  }
+  .line span:first-child { color: #cfcfcf; }
+  .line .est { font-size: .72rem; color: var(--gold); letter-spacing: .08em; text-transform: uppercase; margin-left: 6px; }
+  .line.minus span:last-child { color: var(--gold-light); }
+  .total-block { margin-top: 22px; }
+  .total-label { font-size: .76rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+  .total {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.6rem, 7vw, 3.3rem); font-weight: 600; line-height: 1.1;
+  }
+  .over { font-size: .95rem; color: #cfcfcf; margin-top: 4px; }
+  .over b { color: var(--gold-light); font-weight: 700; }
+
+  .bar { display: flex; height: 12px; border-radius: 6px; overflow: hidden; margin: 22px 0 10px; background: #1f1f1f; }
+  .bar div { height: 100%; transition: width .3s ease; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .8rem; color: #bdbdbd; }
+  .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+  .c-base { background: #ffffff; }
+  .c-lot { background: #8a8a8a; }
+  .c-struct { background: var(--gold-light); }
+  .c-dc { background: var(--gold); }
+
+  .payment {
+    margin-top: 26px; padding-top: 22px; border-top: 1px solid #262626;
+  }
+  .payment .amt { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 2.1rem; font-weight: 600; }
+  .payment .small { font-size: .86rem; color: #a9a9a9; }
+
+  /* Story + CTA */
+  .story { max-width: 760px; margin: 72px auto 0; }
+  .story h2, .cta h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.9rem, 4.5vw, 2.5rem); font-weight: 600; line-height: 1.15; margin-bottom: 16px;
+  }
+  .story p { margin-bottom: 14px; font-size: 1.05rem; }
+
+  .cta {
+    max-width: 760px; margin: 64px auto 0; text-align: left;
+    border-top: 2px solid var(--gold); padding-top: 40px;
+  }
+  .cta p { font-size: 1.05rem; margin-bottom: 26px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 15px 28px; border-radius: 999px; font-weight: 700; text-decoration: none;
+    font-size: 1rem; min-width: 200px; transition: transform .1s, background .15s;
+  }
+  .btn:active { transform: scale(.98); }
+  .btn-gold { background: var(--gold); color: var(--black); }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-outline { border: 2px solid var(--black); color: var(--black); }
+  .btn-outline:hover { background: var(--black); color: var(--white); }
+  .cta .fine { font-size: .86rem; color: var(--muted); margin-top: 18px; }
+
+  footer {
+    background: var(--black); color: #9a9a9a; text-align: center;
+    padding: 30px 20px; font-size: .85rem; margin-top: 80px;
+  }
+  footer strong { color: var(--white); font-weight: 500; }
+  .disclaimer { max-width: 760px; margin: 12px auto 0; font-size: .76rem; color: #777; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">Will Dobesh <span>|</span> New Construction</div>
+    <a class="back" href="index.html">Back to the guide</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Utah County New Construction</div>
+    <h1>The base price is where the builder starts. <em>Here's where you'll finish.</em></h1>
+    <p>Builders advertise base price to get you in the door. Lot premiums, structural upgrades, and design center choices come after. Run your numbers here before you fall in love with a floor plan.</p>
+  </div>
+</section>
+
+<main>
+  <div class="grid">
+
+    <!-- Inputs -->
+    <div class="card">
+      <h2>Your numbers</h2>
+      <p class="sub">Use the figures from the builder's price sheet. Leave anything blank that doesn't apply.</p>
+
+      <div class="section-label">The home</div>
+
+      <div class="field">
+        <label for="base">Base price</label>
+        <div class="input-wrap"><span class="pre">$</span><input id="base" inputmode="numeric" placeholder="0" autocomplete="off"></div>
+        <div class="hint">The advertised price. Includes standard finishes only.</div>
+      </div>
+
+      <div class="field">
+        <label for="lot">Lot premium</label>
+        <div class="input-wrap"><span class="pre">$</span><input id="lot" inputmode="numeric" placeholder="0" autocomplete="off"></div>
+        <div class="hint">Extra charged for corner lots, views, larger yards, or backing to open space.</div>
+      </div>
+
+      <div class="field">
+        <label for="struct">Structural upgrades</label>
+        <div class="input-wrap"><span class="pre">$</span><input id="struct" inputmode="numeric" placeholder="0" autocomplete="off"></div>
+        <div class="hint">Changes to the plan itself: extra bedroom, larger garage, finished basement, covered patio.</div>
+      </div>
+
+      <div class="field dc-field">
+        <label for="dc">Design center upgrades</label>
+        <div class="input-wrap"><span class="pre">$</span><input id="dc" inputmode="numeric" placeholder="30,000 (estimate)" autocomplete="off"></div>
+        <div class="dc-note" id="dcNote">
+          Leave this blank and we'll use <strong>$30,000</strong>. My new construction buyers over the last year spent between $20,000 and $30,000 at the design center, so this keeps your estimate on the safe side.
+        </div>
+      </div>
+
+      <div class="section-label">What comes off</div>
+
+      <div class="field">
+        <label for="inc">Builder incentives</label>
+        <div class="input-wrap"><span class="pre">$</span><input id="inc" inputmode="numeric" placeholder="0" autocomplete="off"></div>
+        <div class="hint">Price reductions or credits the builder is offering. Ask me for this month's offers.</div>
+      </div>
+
+      <div class="section-label">Monthly payment (optional)</div>
+
+      <div class="row-2">
+        <div class="field">
+          <label for="down">Down payment</label>
+          <div class="input-wrap"><input id="down" class="no-pre" inputmode="decimal" placeholder="0" autocomplete="off"><span class="post">%</span></div>
+        </div>
+        <div class="field">
+          <label for="rate">Interest rate</label>
+          <div class="input-wrap"><input id="rate" class="no-pre" inputmode="decimal" placeholder="Your rate" autocomplete="off"><span class="post">%</span></div>
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="term">Loan term</label>
+          <select id="term">
+            <option value="30">30 years</option>
+            <option value="15">15 years</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="hoa">HOA (monthly)</label>
+          <div class="input-wrap"><span class="pre">$</span><input id="hoa" inputmode="numeric" placeholder="0" autocomplete="off"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="card results" aria-live="polite">
+      <h2>Your true cost</h2>
+      <p class="sub">Updates as you type.</p>
+
+      <div class="line"><span>Base price</span><span id="rBase">$0</span></div>
+      <div class="line"><span>Lot premium</span><span id="rLot">$0</span></div>
+      <div class="line"><span>Structural upgrades</span><span id="rStruct">$0</span></div>
+      <div class="line"><span>Design center<span class="est" id="rDcTag">estimate</span></span><span id="rDc">$0</span></div>
+      <div class="line minus"><span>Builder incentives</span><span id="rInc">$0</span></div>
+
+      <div class="total-block">
+        <div class="total-label">Estimated purchase price</div>
+        <div class="total" id="rTotal">$0</div>
+        <div class="over" id="rOver">Enter a base price to start.</div>
+      </div>
+
+      <div class="bar" aria-hidden="true">
+        <div class="c-base" id="bBase" style="width:0"></div>
+        <div class="c-lot" id="bLot" style="width:0"></div>
+        <div class="c-struct" id="bStruct" style="width:0"></div>
+        <div class="c-dc" id="bDc" style="width:0"></div>
+      </div>
+      <div class="legend">
+        <span><i class="c-base"></i>Base</span>
+        <span><i class="c-lot"></i>Lot</span>
+        <span><i class="c-struct"></i>Structural</span>
+        <span><i class="c-dc"></i>Design center</span>
+      </div>
+
+      <div class="payment">
+        <div class="total-label">Estimated monthly payment</div>
+        <div class="amt" id="rPay">--</div>
+        <div class="small" id="rPayNote">Add your interest rate to see principal and interest, plus HOA.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="story">
+    <h2>Why I built this</h2>
+    <p>I spent three years on the builder side, running 5 new construction communities in Utah County. The most common mistake I saw was buyers who didn't know their budget before they walked in.</p>
+    <p>They'd fall in love with a floor plan at base price. Then the lot premium, structural upgrades, and design center selections were added in, and they had priced themselves out. The next step was cutting the things they loved most.</p>
+    <p>Knowing your real number first means you only tour homes that fit, and you walk into the design center with a plan.</p>
+  </section>
+
+  <section class="cta">
+    <h2>Want a second set of eyes on your numbers?</h2>
+    <p>Send me what you entered and I'll tell you which builders fit that budget right now, and what incentives they're offering this month.</p>
+    <div class="btns">
+      <a class="btn btn-gold" id="smsBtn" href="sms:+18014007976">Text Will</a>
+      <a class="btn btn-outline" id="mailBtn" href="mailto:will.dobesh@theperry.group">Email Will</a>
+    </div>
+    <p class="fine">Will Dobesh &middot; 801.400.7976 &middot; will.dobesh@theperry.group</p>
+  </section>
+</main>
+
+<footer>
+  <strong>Will Dobesh</strong> &middot; The Perry Group | Real Broker LLC &middot; Utah County
+  <p class="disclaimer">This calculator gives estimates for planning only. Actual pricing, lot premiums, upgrade costs, incentives, and loan terms come from the builder and your lender. Monthly payment shows principal, interest, and HOA only; property taxes and homeowners insurance are not included.</p>
+</footer>
+
+<script>
+(function () {
+  const DC_DEFAULT = 30000;
+  const $ = id => document.getElementById(id);
+  const money = n => '$' + Math.round(n).toLocaleString('en-US');
+  const num = el => {
+    const v = parseFloat(String(el.value).replace(/[^0-9.]/g, ''));
+    return isNaN(v) ? 0 : v;
+  };
+  const moneyInputs = ['base', 'lot', 'struct', 'dc', 'inc', 'hoa'];
+
+  // Format dollar inputs with commas as the user types
+  moneyInputs.forEach(id => {
+    const el = $(id);
+    el.addEventListener('input', () => {
+      const digits = el.value.replace(/[^0-9]/g, '');
+      el.value = digits ? Number(digits).toLocaleString('en-US') : '';
+      calc();
+    });
+  });
+  ['down', 'rate', 'term'].forEach(id => $(id).addEventListener('input', calc));
+
+  function calc() {
+    const base = num($('base')), lot = num($('lot')), struct = num($('struct'));
+    const inc = num($('inc')), hoa = num($('hoa'));
+    const subtotal = base + lot + struct;
+    const dcEntered = $('dc').value.trim() !== '';
+    const dcEstimate = base > 0 ? DC_DEFAULT : 0;
+    const dc = dcEntered ? num($('dc')) : dcEstimate;
+    const gross = subtotal + dc;
+    const total = Math.max(gross - inc, 0);
+
+    // Design center field: show the $30,000 default when blank
+    $('dc').classList.toggle('filled', dcEntered);
+    $('dcNote').style.display = dcEntered ? 'none' : 'block';
+    $('rDcTag').style.display = dcEntered ? 'none' : 'inline';
+
+    $('rBase').textContent = money(base);
+    $('rLot').textContent = money(lot);
+    $('rStruct').textContent = money(struct);
+    $('rDc').textContent = money(dc);
+    $('rInc').textContent = inc ? '−' + money(inc) : '$0';
+    $('rTotal').textContent = money(total);
+
+    if (base > 0) {
+      const diff = total - base;
+      const pct = Math.round((diff / base) * 100);
+      $('rOver').innerHTML = diff >= 0
+        ? '<b>' + money(diff) + '</b> above base price (' + pct + '% more than advertised)'
+        : '<b>' + money(-diff) + '</b> below base price after incentives';
+    } else {
+      $('rOver').textContent = 'Enter a base price to start.';
+    }
+
+    // Breakdown bar (share of pre-incentive total)
+    const parts = { bBase: base, bLot: lot, bStruct: struct, bDc: dc };
+    Object.keys(parts).forEach(k => {
+      $(k).style.width = gross ? (parts[k] / gross * 100) + '%' : '0';
+    });
+
+    // Monthly payment
+    const rate = num($('rate')), downPct = Math.min(num($('down')), 100);
+    const years = parseInt($('term').value, 10);
+    let payText = '--', payNote = 'Add your interest rate to see principal and interest, plus HOA.';
+    if (total > 0 && rate > 0) {
+      const loan = total * (1 - downPct / 100);
+      const r = rate / 100 / 12, n = years * 12;
+      const pi = loan * r / (1 - Math.pow(1 + r, -n));
+      payText = money(pi + hoa);
+      payNote = 'Principal and interest ' + money(pi) + (hoa ? ' + HOA ' + money(hoa) : '') +
+        ' on a ' + money(loan) + ' loan. Taxes and insurance not included.';
+    }
+    $('rPay').textContent = payText;
+    $('rPayNote').textContent = payNote;
+
+    // Prewritten messages with their numbers
+    let msg = "Hi Will, I used your new construction cost calculator";
+    if (base > 0) {
+      msg += ". Base price " + money(base) + ", estimated total " + money(total) +
+        (dcEntered ? "" : " (with $30,000 design center estimate)") +
+        ". Can you tell me which builders fit this budget and what incentives they have right now?";
+    } else {
+      msg += " and would like help figuring out my budget for a new build.";
+    }
+    $('smsBtn').href = 'sms:+18014007976?&body=' + encodeURIComponent(msg);
+    $('mailBtn').href = 'mailto:will.dobesh@theperry.group?subject=' +
+      encodeURIComponent('New construction budget question') + '&body=' + encodeURIComponent(msg);
+  }
+
+  calc();
+})();
+</script>
+</body>
+</html>
