@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Before You Build: A New Construction Checklist | Will Dobesh</title>
+<meta name="description" content="A step-by-step new construction checklist for Utah County buyers from Will Dobesh, The Perry Group.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #000000;
+    --white: #ffffff;
+    --gold: #e6ae37;
+    --gold-light: #fad77b;
+    --ink: #1f1f1f;
+    --muted: #5c5c5c;
+    --rule: #cfcac2;
+    --serif: "Cormorant Garamond", Garamond, "Times New Roman", serif;
+    --sans: "DM Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); }
+  body {
+    margin: 0;
+    background: var(--white);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Cover ---------- */
+  .cover {
+    background: var(--black);
+    color: var(--white);
+    padding: clamp(56px, 10vw, 120px) clamp(24px, 6vw, 72px) clamp(48px, 7vw, 88px);
+  }
+  .cover-inner { max-width: 1040px; margin: 0 auto; }
+  .cover .kicker {
+    font-size: 15px;
+    color: var(--gold-light);
+    margin: 0 0 20px;
+    letter-spacing: 0.02em;
+  }
+  .cover h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(56px, 11vw, 132px);
+    line-height: 0.92;
+    letter-spacing: -0.015em;
+    margin: 0;
+  }
+  .cover .rule {
+    width: 96px;
+    height: 3px;
+    background: var(--gold);
+    margin: 36px 0 28px;
+  }
+  .cover .intro {
+    max-width: 34em;
+    font-size: 18px;
+    color: #e8e8e8;
+    margin: 0;
+  }
+  .cover .by {
+    margin-top: 40px;
+    font-size: 15px;
+    color: #bdbdbd;
+  }
+  .cover .by strong { color: var(--white); font-weight: 500; }
+
+  .print-only { display: none; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .contents { list-style: none; padding: 0; margin: 1.2in 0 0; border-top: 1px solid var(--black); }
+  .contents li { font-family: var(--serif); font-size: 20pt; padding: 7pt 0; border-bottom: 1px solid var(--rule); display: flex; gap: 22pt; }
+  .contents li span { color: var(--gold); width: 18pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .cover-contact { margin-top: 26pt; font-size: 11pt; }
+
+  /* ---------- Toolbar (web only) ---------- */
+  .toolbar {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 5;
+    background: var(--white);
+    border-bottom: 1px solid var(--rule);
+  }
+  .toolbar-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 12px clamp(24px, 6vw, 72px);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .progress { flex: 1 1 220px; display: flex; align-items: center; gap: 14px; }
+  .progress-track { flex: 1; height: 4px; background: #ece9e4; position: relative; }
+  .progress-fill { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--gold); transition: width .35s ease; }
+  .progress-label { font-size: 14px; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .toolbar button {
+    font: 500 14px/1 var(--sans);
+    padding: 10px 16px;
+    border: 1px solid var(--black);
+    background: var(--black);
+    color: var(--white);
+    cursor: pointer;
+  }
+  .back-link { font: 500 14px/1 var(--sans); color: var(--black); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; white-space: nowrap; }
+  .back-link:hover { color: var(--muted); }
+  .toolbar button.quiet { background: var(--white); color: var(--black); border-color: var(--rule); }
+  .toolbar button:hover { border-color: var(--gold); }
+  .save-note { font-size: 13px; color: var(--muted); width: 100%; margin: -4px 0 0; }
+
+  /* ---------- Phases ---------- */
+  main { max-width: 1040px; margin: 0 auto; padding: 0 clamp(24px, 6vw, 72px) 40px; }
+  .phase {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    padding: 72px 0 64px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .phase:last-of-type { border-bottom: 0; }
+  .phase-head { align-self: start; position: sticky; top: 96px; }
+  .phase-num {
+    font-family: var(--serif);
+    font-size: 88px;
+    line-height: 0.8;
+    color: var(--gold);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 14px;
+  }
+  .phase-head h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 1.05;
+    margin: 0;
+  }
+  .phase-head .when { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
+
+  /* ---------- Checklist items ---------- */
+  .items { list-style: none; margin: 0; padding: 0; }
+  .item { margin: 0 0 30px; max-width: 40em; }
+  .item label.check {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 16px;
+    cursor: pointer;
+    align-items: start;
+  }
+  .item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 24px; height: 24px;
+    margin: 3px 0 0;
+    border: 1.5px solid var(--black);
+    background: var(--white);
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+  }
+  .item input[type="checkbox"]::after {
+    content: "";
+    width: 12px; height: 7px;
+    border-left: 2.5px solid var(--black);
+    border-bottom: 2.5px solid var(--black);
+    transform: rotate(-45deg) translate(1px, -1px) scale(0);
+    transition: transform .15s ease;
+  }
+  .item input[type="checkbox"]:checked { background: var(--gold); border-color: var(--gold); }
+  .item input[type="checkbox"]:checked::after { transform: rotate(-45deg) translate(1px, -1px) scale(1); }
+  .item input[type="checkbox"]:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .item h3 { font-size: 19px; font-weight: 700; margin: 0 0 6px; line-height: 1.3; }
+  .item p { margin: 0; color: #333; }
+  .item.done h3 { text-decoration: line-through; text-decoration-color: var(--gold); text-decoration-thickness: 2px; }
+
+  /* ---------- Write-in areas ---------- */
+  .notes {
+    margin: 44px 0 0;
+    padding-top: 28px;
+    border-top: 3px solid var(--black);
+  }
+  .notes h4 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+  .notes .hint { font-size: 14px; color: var(--muted); margin: 0 0 20px; }
+  .field { margin: 0 0 22px; }
+  .field > span { display: block; font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .line, .cell {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid var(--ink);
+    background: transparent;
+    font: 400 16px/1.4 var(--sans);
+    color: var(--ink);
+    padding: 8px 2px 4px;
+    border-radius: 0;
+  }
+  .line + .line { margin-top: 6px; }
+  .field > .pair { gap: 28px; }
+  .line:focus, .cell:focus { outline: none; border-bottom: 2px solid var(--gold); }
+
+  .table-wrap { overflow-x: auto; margin: 6px 0 28px; }
+  table.write { width: 100%; min-width: 620px; border-collapse: collapse; }
+  table.write th {
+    text-align: left;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 0 10px 6px 0;
+    border-bottom: 2px solid var(--black);
+    vertical-align: bottom;
+  }
+  table.write td { padding: 4px 10px 0 0; vertical-align: bottom; }
+  table.write .cell { border-bottom-color: var(--rule); }
+  table.write td.tick { width: 72px; text-align: center; }
+  table.write .preset { display: block; font-size: 15px; font-weight: 500; padding: 8px 2px 4px; border-bottom: 1px solid var(--rule); line-height: 1.4; }
+  table.write.qa th:first-child, table.write.qa td:first-child { width: 50%; }
+  table.write[data-table="deposits"] th:first-child { width: 42%; }
+  table.write.qa { margin-top: 10px; }
+  table.write td.tick input { width: 20px; height: 20px; accent-color: var(--gold); }
+
+  /* ---------- Footer ---------- */
+  footer.contact { background: var(--black); color: var(--white); padding: 56px clamp(24px, 6vw, 72px); }
+  .contact-inner { max-width: 1040px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: end; justify-content: space-between; }
+  .contact p { margin: 0; }
+  .contact .name { font-family: var(--serif); font-size: 40px; line-height: 1; margin-bottom: 10px; }
+  .contact .sub { color: #bdbdbd; font-size: 15px; }
+  .contact a { color: var(--white); text-decoration-color: var(--gold); text-underline-offset: 4px; }
+  .contact .reach { font-size: 17px; line-height: 1.9; }
+  .logos { display: flex; gap: 28px; align-items: center; }
+  .logos img { height: 84px; width: auto; display: block; }
+  .logos.print-only { display: none; }
+
+  @media (max-width: 760px) {
+    body { font-size: 16px; }
+    .phase { grid-template-columns: 1fr; gap: 24px; padding: 52px 0 44px; }
+    .phase-head { position: static; display: flex; align-items: baseline; gap: 16px; }
+    .phase-num { font-size: 56px; margin: 0; flex: none; }
+    .phase-head > div, .phase > div { min-width: 0; }
+    .phase-head h2 { font-size: 30px; }
+    .pair, .trio, .field > .pair { grid-template-columns: 1fr; gap: 0; }
+    .field > .pair > div + div .line:first-child { margin-top: 6px; }
+    .toolbar { position: static; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+
+  /* ---------- Print / PDF ---------- */
+  @page { size: letter; margin: 0.55in 0.6in 0.6in; }
+  @media print {
+    :root { padding: 0; }
+    body { font-size: 11pt; line-height: 1.45; }
+    .toolbar, .web-only { display: none !important; }
+    .cover {
+      background: var(--white);
+      color: var(--black);
+      padding: 0 0 0.22in;
+      border-bottom: 2px solid var(--black);
+    }
+    .cover .kicker { color: var(--black); font-weight: 500; }
+    .cover h1 { font-size: 100pt; margin-top: 0.5in; }
+    .contents { margin-top: 0.55in !important; }
+    .contents li { font-size: 17pt !important; padding: 5pt 0 !important; }
+    .cover { border-bottom: 0; }
+    .cover .intro { font-size: 13pt; }
+    .cover .rule { margin: 26pt 0 20pt !important; }
+    .print-only, .logos.print-only { display: block !important; }
+    .print-newpage { break-before: page; padding-top: 4pt; }
+    #phase-1 .item { margin-bottom: 8pt; }
+    #phase-1 .notes { margin-top: 14pt; padding-top: 10pt; }
+    #phase-1 .field { margin-bottom: 8pt; }
+    #phase-1 .line { padding-top: 7pt; }
+    #phase-1 .line + .line { margin-top: 3pt; }
+    #phase-2 table.write td { padding-top: 4pt; }
+    table.write.qa { margin-top: 8pt; }
+    #phase-2 .table-wrap { margin-bottom: 10pt; }
+    #phase-2 .notes { margin-top: 14pt; padding-top: 10pt; }
+    #phase-2 .field { margin-bottom: 8pt; }
+    #phase-2 .line { padding-top: 8pt; }
+    #phase-2 .line + .line { margin-top: 3pt; }
+    table.write td { padding-top: 8pt; }
+    .cover .intro { color: #333; font-size: 12pt; }
+    .cover .by { color: #555; margin-top: 18pt; }
+    .cover .by strong { color: var(--black); }
+    .cover .rule { -webkit-print-color-adjust: exact; print-color-adjust: exact; margin: 14pt 0 12pt; }
+    .cover .kicker { margin-bottom: 8pt; }
+    .cover .by { margin-top: 10pt; }
+    main { padding: 0; max-width: none; }
+    .phase {
+      grid-template-columns: 1.55in 1fr;
+      gap: 0.35in;
+      padding: 0;
+      border: 0;
+      break-before: page;
+    }
+    .phase-head { position: static; }
+    .phase-num { font-size: 60pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .phase-head h2 { font-size: 22pt; }
+    .item { margin-bottom: 14pt; break-inside: avoid; }
+    .item h3 { font-size: 12.5pt; }
+    .item input[type="checkbox"] { width: 16pt; height: 16pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .notes { margin-top: 20pt; padding-top: 14pt; }
+    .notes h4 { font-size: 17pt; }
+    .notes .hint { margin-bottom: 10pt; }
+    .field { margin-bottom: 12pt; break-inside: avoid; }
+    .line, .cell { font-size: 11pt; padding-top: 12pt; }
+    .table-wrap { overflow: visible; margin-bottom: 16pt; break-inside: avoid; }
+    table.write { min-width: 0; }
+    table.write th { font-size: 9pt; }
+    table.write .preset { font-size: 10pt; padding-top: 12pt; border-bottom-color: #9a958d; }
+    table.write .cell { border-bottom-color: #9a958d; }
+    footer.contact {
+      background: var(--white);
+      color: var(--black);
+      border-top: 2px solid var(--black);
+      padding: 16pt 0 0;
+      margin-top: 28pt;
+      break-inside: avoid;
+    }
+    .contact .sub { color: #555; }
+    .contact a { color: var(--black); text-decoration: none; }
+    .contact .name { font-size: 26pt; }
+    .contact .reach { font-size: 11pt; line-height: 1.6; }
+    .logo-web { display: none; }
+    .logo-print img { height: 0.55in; }
+    .contact .sub { white-space: nowrap; }
+    .contact-inner { flex-wrap: nowrap !important; gap: 0.35in !important; align-items: center !important; }
+    .cover-logo { margin-top: 0.4in; }
+    .cover-logo img { height: 0.75in; }
+    .cover h1 { margin-top: 0.25in !important; }
+    .contents { margin-top: 0.4in !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="cover-inner">
+    <p class="kicker">A new construction checklist for Utah County buyers</p>
+    <h1>Before<br class="web-br"> You Build</h1>
+    <div class="rule" aria-hidden="true"></div>
+    <p class="intro">Work through this checklist from your first model home visit to the day you get your keys. Check each step off as you go, and use the lines to keep your builders, incentives, dates and questions in one place.</p>
+    <p class="by"><strong>Will Dobesh</strong>, The Perry Group | Real Broker, LLC</p>
+    <ol class="contents print-only">
+      <li><span>1</span>Before you visit a builder</li>
+      <li><span>2</span>Touring and choosing a builder</li>
+      <li><span>3</span>Signing the contract</li>
+      <li><span>4</span>The design center</li>
+      <li><span>5</span>During the build</li>
+    </ol>
+    <p class="cover-contact print-only">801.400.7976 &nbsp;&nbsp; will.dobesh@theperry.group</p>
+    <div class="logos cover-logo print-only"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzk0IiBoZWlnaHQ9IjQyNiIgdmlld0JveD0iMCAwIDc5NCA0MjYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8zNTRfMTUyKSI+CjxwYXRoIGQ9Ik0xODcuMTUgMTYuODQxOEgxNjcuNTI0VjQuNTA3MzFIMjIxLjA5M1YxNi44NDE4SDIwMS4zNzZWNjguNzkwOEgxODcuMTVWMTYuODQxOFoiIGZpbGw9IiMwNzA1MDUiLz4KPHBhdGggZD0iTTI2Ny4wMDkgNDEuOTYxSDI0MS45OFY2OC43ODk4SDIyNy44NDRWNC41MDczMUgyNDEuOThWMjkuMjY2M0gyNjcuMDA5VjQuNTA3MzFIMjgxLjIzNFY2OC43OTA4SDI2Ny4wMDlWNDEuOTYxWiIgZmlsbD0iIzA3MDUwNSIvPgo8cGF0aCBkPSJNMjkyLjM5NiA0LjUwNzMxSDMzNi45NjRWMTUuOTQxNUgzMDYuMzUxVjMwLjI1NzdIMzM1LjE2MlY0MS42OTE5SDMwNi4zNTFWNTcuMzU3NkgzMzguNzYzTDMzNy4zMjMgNjguNzkxOEgyOTIuMzk2VjQuNTA3MzFaIiBmaWxsPSIjMDcwNTA1Ii8+CjxwYXRoIGQ9Ik0xNzEuOTM0IDg5LjUzODNIMTk1LjA3NEMyMDEuMjU1IDg5LjUzODMgMjA2LjE3NyA5MC4zOTM2IDIwOS44MzkgOTIuMTA0M0MyMTMuNSA5My44MTM5IDIxNi4xNDIgOTYuMjE0OCAyMTcuNzYyIDk5LjMwNTlDMjE5LjM4MyAxMDIuMzk4IDIyMC4xOTMgMTA2LjA0NCAyMjAuMTkzIDExMC4yNDZDMjIwLjE5MyAxMTQuNTY2IDIxOS4zNjggMTE4LjMzNSAyMTcuNzE3IDEyMS41NDVDMjE2LjA2NiAxMjQuNzU2IDIxMy40MSAxMjcuMjQ3IDIwOS43NDkgMTI5LjAxOEMyMDYuMDg3IDEzMC43ODkgMjAxLjIyNSAxMzEuNjc0IDE5NS4xNjQgMTMxLjY3NEgxODUuNjJWMTUzLjgyMkgxNzEuOTM0Vjg5LjUzODNaTTIwNi45NTggMTEwLjQyNUMyMDYuOTU4IDEwNy4xMjUgMjA2LjExNyAxMDQuNzA4IDIwNC40MzYgMTAzLjE3N0MyMDIuNzU1IDEwMS42NDcgMTk5LjYzNCAxMDAuODgxIDE5NS4wNzQgMTAwLjg4MUgxODUuNjJWMTIwLjMyOEgxOTUuMTY0QzE5OS43ODUgMTIwLjMyOCAyMDIuOTA2IDExOS40NzMgMjA0LjUyNiAxMTcuNzYzQzIwNi4xNDcgMTE2LjA1MiAyMDYuOTU4IDExMy42MDcgMjA2Ljk1OCAxMTAuNDI1WiIgZmlsbD0iIzA3MDUwNSIvPgo8cGF0aCBkPSJNMjI4LjU2NCA4OS41MzgzSDI3My4xM1YxMDAuOTcySDI0Mi41MTlWMTE1LjI4OUgyNzEuMzNWMTI2LjcyM0gyNDIuNTE5VjE0Mi4zODlIMjc0LjkzTDI3My40OTEgMTUzLjgyM0gyMjguNTY0Vjg5LjUzODNaIiBmaWxsPSIjMDcwNTA1Ii8+CjxwYXRoIGQ9Ik0yODIuNDA0IDg5LjUzODNIMzA2LjYyM0MzMTIuNjg1IDg5LjUzODMgMzE3LjUzMSA5MC4zNzk2IDMyMS4xNjMgOTIuMDU5MkMzMjQuNzk0IDkzLjc0MDggMzI3LjQyIDk2LjA2NTcgMzI5LjA0MSA5OS4wMzc4QzMzMC42NjEgMTAyLjAwOSAzMzEuNDczIDEwNS4zODUgMzMxLjQ3MyAxMDkuMTY2QzMzMS40NzMgMTEzLjI0OSAzMzAuNjMxIDExNi43ODkgMzI4Ljk1MSAxMTkuNzlDMzI3LjI2OSAxMjIuNzkxIDMyNC42ODggMTI1LjE5MSAzMjEuMjA4IDEyNi45OTJMMzM0LjYyMyAxNTMuODIySDMxOS43NjdMMzA4LjUxMyAxMzAuMDUzQzMwOC4wMzIgMTMwLjA1MyAzMDcuNTUyIDEzMC4wNjkgMzA3LjA3MyAxMzAuMDk4QzMwNi41OTMgMTMwLjEyOSAzMDYuMTEyIDEzMC4xNDMgMzA1LjYzMyAxMzAuMTQzSDI5NS45MDlWMTUzLjgyMkgyODIuNDA0Vjg5LjUzODNaTTMxNy43ODcgMTA5LjYxNUMzMTcuNzg3IDEwNi42MTUgMzE2LjkxNiAxMDQuMzQ4IDMxNS4xNzcgMTAyLjgxN0MzMTMuNDM1IDEwMS4yODggMzEwLjI4MyAxMDAuNTIxIDMwNS43MjMgMTAwLjUyMUgyOTUuOTA5VjExOS4yNDlIMzA2LjI2M0MzMTAuNzA0IDExOS4yNDkgMzEzLjczNiAxMTguNDI1IDMxNS4zNTcgMTE2Ljc3MkMzMTYuOTc3IDExNS4xMjMgMzE3Ljc4OCAxMTIuNzM3IDMxNy43ODggMTA5LjYxNUgzMTcuNzg3WiIgZmlsbD0iIzA3MDUwNSIvPgo8cGF0aCBkPSJNMzQxLjAxNSA4OS41MzgzSDM2NS4yMzRDMzcxLjI5NiA4OS41MzgzIDM3Ni4xNDIgOTAuMzc5NiAzNzkuNzc0IDkyLjA1OTJDMzgzLjQwNSA5My43NDA4IDM4Ni4wMzIgOTYuMDY1NyAzODcuNjUyIDk5LjAzNzhDMzg5LjI3MyAxMDIuMDA5IDM5MC4wODMgMTA1LjM4NSAzOTAuMDgzIDEwOS4xNjZDMzkwLjA4MyAxMTMuMjQ5IDM4OS4yNDIgMTE2Ljc4OSAzODcuNTYyIDExOS43OUMzODUuODggMTIyLjc5MSAzODMuMjk5IDEyNS4xOTEgMzc5LjgxOSAxMjYuOTkyTDM5My4yMzQgMTUzLjgyMkgzNzguMzc4TDM2Ny4xMjQgMTMwLjA1M0MzNjYuNjQzIDEzMC4wNTMgMzY2LjE2MyAxMzAuMDY5IDM2NS42ODQgMTMwLjA5OEMzNjUuMjAzIDEzMC4xMjkgMzY0LjcyMyAxMzAuMTQzIDM2NC4yNDQgMTMwLjE0M0gzNTQuNTJWMTUzLjgyMkgzNDEuMDE1Vjg5LjUzODNaTTM3Ni4zOTggMTA5LjYxNUMzNzYuMzk4IDEwNi42MTUgMzc1LjUyNyAxMDQuMzQ4IDM3My43ODcgMTAyLjgxN0MzNzIuMDQ1IDEwMS4yODggMzY4Ljg5NCAxMDAuNTIxIDM2NC4zMzQgMTAwLjUyMUgzNTQuNTJWMTE5LjI0OUgzNjQuODc0QzM2OS4zMTQgMTE5LjI0OSAzNzIuMzQ4IDExOC40MjUgMzczLjk2OCAxMTYuNzcyQzM3NS41ODggMTE1LjEyMyAzNzYuMzk5IDExMi43MzcgMzc2LjM5OSAxMDkuNjE1SDM3Ni4zOThaIiBmaWxsPSIjMDcwNTA1Ii8+CjxwYXRoIGQ9Ik00MTIuMDUgMTI4LjI1MkwzOTAuMzUyIDg5LjUzODNINDA1Ljc0OUw0MTkuMjU0IDExNi44MThMNDMzLjAyOSA4OS41MzgzSDQ0Ny44ODRMNDI2LjM2NiAxMjguMjUyVjE1My44MjJINDEyLjA1MVYxMjguMjUySDQxMi4wNVoiIGZpbGw9IiMwNzA1MDUiLz4KPHBhdGggZD0iTTQ2OS44NTEgMTIxLjg1OUM0NjkuODUxIDExNS4wMTcgNDcxLjAzNiAxMDkuMDYgNDczLjQwNyAxMDMuOTg4QzQ3NS43NzcgOTguOTE2NyA0NzkuMjQ0IDk0Ljk3MDMgNDgzLjgwNiA5Mi4xNDkzQzQ4OC4zNjggODkuMzI4MiA0OTMuODkgODcuOTE3NyA1MDAuMzczIDg3LjkxNzdDNTA3Ljk5NSA4Ny45MTc3IDUxMy45OTcgODkuNzA0NCA1MTguMzggOTMuMjc0N0M1MjIuNzYgOTYuODQ2IDUyNS41MjIgMTAxLjcyMyA1MjYuNjYyIDEwNy45MDRMNTEyLjYxOCAxMDkuNDM1QzUxMS44MzYgMTA2LjQzNCA1MTAuNTQ3IDEwNC4wOTMgNTA4Ljc0NiAxMDIuNDEyQzUwNi45NDUgMTAwLjczMSA1MDQuMTI0IDk5Ljg5MDEgNTAwLjI4MyA5OS44OTAxQzQ5Ni41MDIgOTkuODkwMSA0OTMuNDU1IDEwMC44MjEgNDkxLjE0NCAxMDIuNjgxQzQ4OC44MzIgMTA0LjU0MiA0ODcuMTUyIDEwNy4wOTMgNDg2LjEwMiAxMTAuMzM0QzQ4NS4wNTIgMTEzLjU3NCA0ODQuNTI3IDExNy4zMjYgNDg0LjUyNyAxMjEuNTg4QzQ4NC41MjcgMTI4LjYxMSA0ODUuOTA3IDEzNC4wMTMgNDg4LjY2OSAxMzcuNzk0QzQ5MS40MjkgMTQxLjU3NCA0OTUuODEyIDE0My40NjYgNTAxLjgxNCAxNDMuNDY2QzUwNi43OTUgMTQzLjQ2NiA1MTAuOTk4IDE0Mi40MTYgNTE0LjQxOSAxNDAuMzE1VjEyOS43ODFINTAxLjkwNFYxMTguNTI3SDUyNy42NTNWMTQ2LjYxN0M1MjQuMjMyIDE0OS40OTggNTIwLjE4IDE1MS42OSA1MTUuNSAxNTMuMTlDNTEwLjgxNyAxNTQuNjg5IDUwNi4wNzUgMTU1LjQ0IDUwMS4yNzQgMTU1LjQ0QzQ5MS4yNDkgMTU1LjQ0IDQ4My41MDYgMTUyLjUxNCA0NzguMDQ1IDE0Ni42NjJDNDcyLjU4MyAxNDAuODEgNDY5Ljg1MyAxMzIuNTQzIDQ2OS44NTMgMTIxLjg1OEw0NjkuODUxIDEyMS44NTlaIiBmaWxsPSIjMDcwNTA1Ii8+CjxwYXRoIGQ9Ik01MzcuMjg0IDg5LjUzODNINTYxLjUwM0M1NjcuNTY1IDg5LjUzODMgNTcyLjQxIDkwLjM3OTYgNTc2LjA0MyA5Mi4wNTkyQzU3OS42NzQgOTMuNzQwOCA1ODIuMyA5Ni4wNjU3IDU4My45MjEgOTkuMDM3OEM1ODUuNTQxIDEwMi4wMDkgNTg2LjM1MiAxMDUuMzg1IDU4Ni4zNTIgMTA5LjE2NkM1ODYuMzUyIDExMy4yNDkgNTg1LjUxIDExNi43ODkgNTgzLjgzMSAxMTkuNzlDNTgyLjE0OSAxMjIuNzkxIDU3OS41NjggMTI1LjE5MSA1NzYuMDg4IDEyNi45OTJMNTg5LjUwMyAxNTMuODIySDU3NC42NDdMNTYzLjM5MyAxMzAuMDUzQzU2Mi45MTIgMTMwLjA1MyA1NjIuNDMyIDEzMC4wNjkgNTYxLjk1MyAxMzAuMDk4QzU2MS40NzMgMTMwLjEyOSA1NjAuOTkyIDEzMC4xNDMgNTYwLjUxMiAxMzAuMTQzSDU1MC43ODlWMTUzLjgyMkg1MzcuMjg0Vjg5LjUzODNaTTU3Mi42NjcgMTA5LjYxNUM1NzIuNjY3IDEwNi42MTUgNTcxLjc5NiAxMDQuMzQ4IDU3MC4wNTYgMTAyLjgxN0M1NjguMzE1IDEwMS4yODggNTY1LjE2MyAxMDAuNTIxIDU2MC42MDMgMTAwLjUyMUg1NTAuNzg5VjExOS4yNDlINTYxLjE0M0M1NjUuNTg0IDExOS4yNDkgNTY4LjYxNiAxMTguNDI1IDU3MC4yMzcgMTE2Ljc3MkM1NzEuODU3IDExNS4xMjMgNTcyLjY2OCAxMTIuNzM3IDU3Mi42NjggMTA5LjYxNUg1NzIuNjY3WiIgZmlsbD0iIzA3MDUwNSIvPgo8cGF0aCBkPSJNNTkyLjgzNSAxMjEuODU5QzU5Mi44MzUgMTE0LjY1NiA1OTQuMTA4IDEwOC41MiA1OTYuNjYgMTAzLjQ0N0M1OTkuMjExIDk4LjM3NjUgNjAyLjgyOCA5NC41MjAxIDYwNy41MSA5MS44NzkyQzYxMi4xOTIgODkuMjM4MiA2MTcuNjg0IDg3LjkxNzcgNjIzLjk4NiA4Ny45MTc3QzYzMC4yODkgODcuOTE3NyA2MzUuNzUgODkuMjIzMiA2NDAuMzcyIDkxLjgzNDJDNjQ0Ljk5MyA5NC40NDQxIDY0OC41NSA5OC4yNDE1IDY1MS4wNDEgMTAzLjIyM0M2NTMuNTMxIDEwOC4yMDYgNjU0Ljc3OCAxMTQuMjY4IDY1NC43NzggMTIxLjQxQzY1NC43NzggMTI4LjYxMyA2NTMuNTE2IDEzNC43NTEgNjUwLjk5NiAxMzkuODIyQzY0OC40NzQgMTQ0Ljg5NSA2NDQuOTAzIDE0OC43NjYgNjQwLjI4MiAxNTEuNDM2QzYzNS42NiAxNTQuMTA2IDYzMC4xMzggMTU1LjQ0MiA2MjMuNzE1IDE1NS40NDJDNjE3LjQxMyAxNTUuNDQyIDYxMS45NTEgMTU0LjEzNyA2MDcuMzI5IDE1MS41MjZDNjAyLjcwNyAxNDguOTE1IDU5OS4xMzcgMTQ1LjEyIDU5Ni42MTUgMTQwLjEzN0M1OTQuMDk0IDEzNS4xNTYgNTkyLjgzNSAxMjkuMDYzIDU5Mi44MzUgMTIxLjg1OVpNNjA3LjYgMTIxLjY3OUM2MDcuNiAxMjguNDAyIDYwOC45NTEgMTMzLjY2OCA2MTEuNjUyIDEzNy40OEM2MTQuMzUzIDE0MS4yOTIgNjE4LjQwNCAxNDMuMTk3IDYyMy44MDYgMTQzLjE5N0M2MjkuMTQ3IDE0My4xOTcgNjMzLjE4NCAxNDEuMjkyIDYzNS45MTUgMTM3LjQ4QzYzOC42NDUgMTMzLjY2OCA2NDAuMDExIDEyOC40MDIgNjQwLjAxMSAxMjEuNjc5QzY0MC4wMTEgMTE0Ljk1NiA2MzguNjQ2IDEwOS42OTEgNjM1LjkxNSAxMDUuODc4QzYzMy4xODQgMTAyLjA2NyA2MjkuMTQ2IDEwMC4xNjEgNjIzLjgwNiAxMDAuMTYxQzYxOC40MDQgMTAwLjE2MSA2MTQuMzUzIDEwMi4wNjcgNjExLjY1MiAxMDUuODc4QzYwOC45NTEgMTA5LjY5MSA2MDcuNiAxMTQuOTU4IDYwNy42IDEyMS42NzlaIiBmaWxsPSIjMDcwNTA1Ii8+CjxwYXRoIGQ9Ik02NjMuMjQgMTI3LjQ0MVY4OS41MzczSDY3Ny40NjVWMTI4LjA3MUM2NzcuNDY1IDEzMy4xNzQgNjc4LjQxIDEzNi45NzEgNjgwLjMwMSAxMzkuNDYxQzY4Mi4xOTMgMTQxLjk1MiA2ODUuMjY4IDE0My4xOTcgNjg5LjUzIDE0My4xOTdDNjkzLjkxMSAxNDMuMTk3IDY5Ny4wMDMgMTQxLjk1MiA2OTguODA0IDEzOS40NjFDNzAwLjYwNCAxMzYuOTcyIDcwMS41MDUgMTMzLjE3NCA3MDEuNTA1IDEyOC4wNzFWODkuNTM3M0g3MTUuNzNWMTI3LjYyQzcxNS43MyAxMzcuMDQ1IDcxMy40NjQgMTQ0LjAzNyA3MDguOTMyIDE0OC41OTlDNzA0LjQwMSAxNTMuMTYyIDY5Ny44NzIgMTU1LjQ0MSA2ODkuMzUgMTU1LjQ0MUM2ODAuODI4IDE1NS40NDEgNjc0LjM0NSAxNTMuMTc2IDY2OS45MDQgMTQ4LjY0NEM2NjUuNDYxIDE0NC4xMTMgNjYzLjI0MiAxMzcuMDQ1IDY2My4yNDIgMTI3LjQ0MUg2NjMuMjRaIiBmaWxsPSIjMDcwNTA1Ii8+CjxwYXRoIGQ9Ik03MjYuMjYzIDg5LjUzODNINzQ5LjQwMUM3NTUuNTgzIDg5LjUzODMgNzYwLjUwNSA5MC4zOTM2IDc2NC4xNjcgOTIuMTA0M0M3NjcuODI3IDkzLjgxMzkgNzcwLjQ3IDk2LjIxNDggNzcyLjA5IDk5LjMwNTlDNzczLjcxMSAxMDIuMzk4IDc3NC41MjEgMTA2LjA0NCA3NzQuNTIxIDExMC4yNDZDNzc0LjUyMSAxMTQuNTY2IDc3My42OTYgMTE4LjMzNSA3NzIuMDQ1IDEyMS41NDVDNzcwLjM5NCAxMjQuNzU2IDc2Ny43MzcgMTI3LjI0NyA3NjQuMDc2IDEyOS4wMThDNzYwLjQxNSAxMzAuNzg5IDc1NS41NTIgMTMxLjY3NCA3NDkuNDkxIDEzMS42NzRINzM5Ljk0OVYxNTMuODIySDcyNi4yNjNWODkuNTM4M1pNNzYxLjI4NSAxMTAuNDI1Qzc2MS4yODUgMTA3LjEyNSA3NjAuNDQ0IDEwNC43MDggNzU4Ljc2NCAxMDMuMTc3Qzc1Ny4wODMgMTAxLjY0NyA3NTMuOTYyIDEwMC44ODEgNzQ5LjQwMSAxMDAuODgxSDczOS45NDlWMTIwLjMyOEg3NDkuNDkxQzc1NC4xMTMgMTIwLjMyOCA3NTcuMjM0IDExOS40NzMgNzU4Ljg1NCAxMTcuNzYzQzc2MC40NzUgMTE2LjA1MiA3NjEuMjg1IDExMy42MDcgNzYxLjI4NSAxMTAuNDI1WiIgZmlsbD0iIzA3MDUwNSIvPgo8cGF0aCBkPSJNMTQ2LjQ3NyA2OS4xNzU5QzE0Ni40NzcgMzEuNDQzMSAxMTUuODkgMC44NTQ5OCA3OC4xNTYzIDAuODU0OThDNDAuNDIyNSAwLjg1NDk4IDkuODMzMzYgMzEuNDQzMSA5LjgzMzM2IDY5LjE3NTlDOS44MzMzNiA4OS4zMzUyIDE4LjYxODYgMTA3LjQgMzIuNTA2NiAxMTkuOTAzQzMyLjQ3ODYgMTE5Ljk0NCAzMi40NjE2IDExOS45ODkgMzIuNDM2NiAxMjAuMDI3TDc4LjE0NzMgMTU5LjA5NEwxMjMuNTM5IDEyMC4yOTlDMTIzLjUxNyAxMjAuMjY4IDEyMy40OTcgMTIwLjIzNSAxMjMuNDc1IDEyMC4yMDdDMTM3LjU1NCAxMDcuNjkgMTQ2LjQ3NyA4OS40OTczIDE0Ni40NzcgNjkuMTc1OVoiIGZpbGw9IiMwNzA1MDUiLz4KPHBhdGggZD0iTTAuODMwMDc4IDIyNC4zMTRINzkzLjExOVYyMTYuODc4SDAuODMwMDc4VjIyNC4zMTRaIiBmaWxsPSIjMDcwNTA1Ii8+CjxwYXRoIGQ9Ik00MTQuMjU0IDM1OS4yMzdDNDExLjcwMSAzNjEuMTIzIDQxMC40MDMgMzY0LjAwNSA0MTAuNDAzIDM2Ny43MzFDNDEwLjQwMyAzNzEuNDU2IDQxMS42NzYgMzc0LjA3MyA0MTQuMTg1IDM3NS44NzFDNDE2LjcyNCAzNzcuNjkgNDIwLjU3OSAzNzguNjEyIDQyNS42NDEgMzc4LjYxMkM0MzIuMjk1IDM3OC42MTIgNDM3IDM3Ny4xODIgNDQwLjAzMSAzNzQuMjM5QzQ0MS41OTQgMzcyLjczOCA0NDIuNjI4IDM3MC4yNDggNDQyLjYyOCAzNjIuOTc5VjM1Ni4zNjNINDI1LjU1N0M0MjAuNjA2IDM1Ni4zNjMgNDE2LjgwMyAzNTcuMzU2IDQxNC4yNSAzNTkuMjM3SDQxNC4yNTRaTTIyOC4wMDUgMjgxLjAzN1Y0MjUuODU0SDU2NS45NDRWMjgxLjAzN0gyMjguMDA1Wk0zMzQuNDk5IDMxOS40NDRWMzI4LjY5OUwzMzMuOTUzIDMyOC42OTNMMzA1LjYzNyAzMjguNTA3TDMwNS42NjQgMzg3LjZIMjk2LjI3MVYzMTkuNDQ0SDMzNC40OTlaTTM1NC45OTUgMzc1LjA4NEMzNTcuNTQ3IDM3Ny40MDUgMzYxLjQzIDM3OC41MzQgMzY2Ljg4MiAzNzguNTM0QzM3NC4wNDcgMzc4LjUzNCAzNzkuMjE5IDM3Ni4xNjkgMzgyLjY5MyAzNzEuMzA0TDM4My4xMDIgMzcwLjczMkwzODMuNjEyIDM3MS4yMTlMMzg5Ljg1NCAzNzcuMTcxTDM4OS41MTQgMzc3LjYwOEMzODYuNTMyIDM4MS40MjggMzgzLjI1NSAzODQuMDI1IDM3OS40ODUgMzg1LjU1NEMzNzUuODUxIDM4Ni45OSAzNzEuOTk0IDM4Ny42MDEgMzY2LjU4IDM4Ny42MDFDMzU3LjYyMiAzODcuNjAxIDM1MS42NSAzODUuODc1IDM0Ny43NyAzODIuMTc0QzM0NC4wNyAzNzguNjQ1IDM0Mi4zNjQgMzczLjM1MSAzNDIuMzY0IDM2NS41MTVWMzM5LjQ0OUMzNDIuMzY0IDMzNC4zOTcgMzQzLjY0MSAzMzAuNjk1IDM0Ni41NDMgMzI3LjQ1NEMzNTAuMjggMzIzLjI4MSAzNTYuNTk1IDMyMC4yNTcgMzYyLjI2OCAzMTkuOTMxQzM2My40NzcgMzE5LjgyOSAzNjQuNzY4IDMxOS43NzYgMzY2LjEwMSAzMTkuNzc2QzM2Ny43NDkgMzE5Ljc3NiAzNjkuMTUyIDMxOS44MiAzNzAuMzkzIDMxOS45MTdDMzc3Ljg3OCAzMjAuMjI0IDM4My4xMjYgMzIyLjE2OSAzODYuOTEzIDMyNi4wNDFDMzkwLjIxIDMyOS40MjYgMzkxLjYxOCAzMzMuMzkyIDM5MS42MTggMzM5LjMyN0MzOTEuNjE4IDM0NS43MjIgMzg5LjggMzUwLjIzNiAzODUuOSAzNTMuNTY5QzM4MS44OTYgMzU2Ljk4NyAzNzYuNTc5IDM1OC41NDcgMzY5LjE3NCAzNTguNTQ3SDM1MS4zMTlWMzY0LjcxM0MzNTEuMzE5IDM2OS40MzYgMzUyLjUxNCAzNzIuODMxIDM1NC45OTUgMzc1LjA4NFpNNDUxLjU4NCAzNjcuNDQzQzQ1MS41ODQgMzcyLjQ5OSA0NTAuMzA3IDM3Ni4xOTcgNDQ3LjQwMyAzNzkuNDM4QzQ0My42NjkgMzgzLjYxMiA0MzcuMzUyIDM4Ni42MzggNDMxLjY3OSAzODYuOTY0QzQzMC40NzEgMzg3LjA2MyA0MjkuMTc5IDM4Ny4xMTYgNDI3Ljg0NiAzODcuMTE2QzQyNi4xOTcgMzg3LjExNiA0MjQuNzk1IDM4Ny4wNjkgNDIzLjU1MyAzODYuOTcyQzQxNi4wNjggMzg2LjY2NSA0MTAuODIgMzg0LjcxOCA0MDcuMDM1IDM4MC44NDNDNDAzLjczOCAzNzcuNDU3IDQwMi4zMyAzNzMuNDgzIDQwMi4zMyAzNjcuNTVDNDAyLjMzIDM2MS4xNTIgNDA0LjE0NyAzNTYuNjIyIDQwOC4wNDggMzUzLjI4OUM0MTIuMDUgMzQ5Ljg3MSA0MTcuMzY2IDM0OC4yNzggNDI0Ljc3MyAzNDguMjc4SDQ0Mi42MjZWMzQyLjE4MUM0NDIuNjI2IDMzNy40NTggNDQxLjQzMiAzMzQuMDYzIDQzOC45NTEgMzMxLjgwN0M0MzYuMzk4IDMyOS40ODYgNDMyLjUxNyAzMjguMzU3IDQyNy4wNjQgMzI4LjM1N0M0MTkuOSAzMjguMzU3IDQxNC43MjggMzMwLjcyMiA0MTEuMjU0IDMzNS41ODdMNDEwLjg0NSAzMzYuMTU5TDQxMC4zMzIgMzM1LjY3Mkw0MDQuNDkzIDMzMC4xMDJMNDA0LjA4OSAzMjkuNzJMNDA0LjQyOSAzMjkuMjgzQzQwNy40MTEgMzI1LjQ2MyA0MTAuNjg5IDMyMi44NjYgNDE0LjQ1OCAzMjEuMzM3QzQxOC4wOTIgMzE5LjkwMSA0MjEuOTUxIDMxOS4yOSA0MjcuMzY0IDMxOS4yOUM0MzYuMzIyIDMxOS4yOSA0NDIuMjk0IDMyMS4wMTYgNDQ2LjE3NCAzMjQuNzE3QzQ0OS44NzUgMzI4LjI0NiA0NTEuNTgxIDMzMy41NCA0NTEuNTgxIDM0MS4zNzZWMzY3LjQ0Mkg0NTEuNTg0VjM2Ny40NDNaTTQ5Ny42NzUgMzg3LjZINDU5LjQ0OFYzNzguMTk3TDQ1OS45OTUgMzc4LjJMNDg4LjMxIDM3OC4zODVMNDg4LjI4MiAzMTkuNDQ1SDQ5Ny42NzRWMzg3LjYwMUw0OTcuNjc1IDM4Ny42Wk0zNzkuNjk1IDM0Ny42MjJDMzgyLjI0NSAzNDUuNzM2IDM4My41NDMgMzQyLjg5IDM4My41NDMgMzM5LjE2NEMzODMuNTQzIDMzNS40MzkgMzgyLjI3IDMzMi44MjIgMzc5Ljc2MSAzMzEuMDI0QzM3Ny4yMjIgMzI5LjIwNSAzNzMuMzY4IDMyOC4yODMgMzY4LjMwNCAzMjguMjgzQzM2MS42NSAzMjguMjgzIDM1Ni45NDcgMzI5LjcxMSAzNTMuOTE1IDMzMi42NTZDMzUyLjM1IDMzNC4xNTYgMzUxLjMxOCAzMzYuNjQ3IDM1MS4zMTggMzQzLjkxNlYzNTAuNDYySDM2OC4zODlDMzczLjMzOSAzNTAuNDYyIDM3Ny4xNDIgMzQ5LjUwNSAzNzkuNjk1IDM0Ny42MjJaIiBmaWxsPSIjMDcwNTA1Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMzU0XzE1MiI+CjxyZWN0IHdpZHRoPSI3OTIuMjg5IiBoZWlnaHQ9IjQyNSIgZmlsbD0id2hpdGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuODMwMDc4IDAuODU0OTgpIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==" alt="The Perry Group | Real Broker, LLC" width="794" height="426"></div>
+  </div>
+</header>
+
+<div class="toolbar web-only">
+  <div class="toolbar-inner">
+    <a class="back-link" href="index.html">Back to the guide</a>
+    <div class="progress">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <span class="progress-label" id="progressLabel">0 of 10 done</span>
+    </div>
+    <button type="button" id="printBtn">Print or save as PDF</button>
+    <button type="button" class="quiet" id="clearBtn">Clear my answers</button>
+    <p class="save-note">Your checks and notes save in this browser only.</p>
+  </div>
+</div>
+
+<main>
+
+  <!-- PHASE 1 -->
+  <section class="phase" id="phase-1">
+    <div class="phase-head">
+      <span class="phase-num">1</span>
+      <div>
+        <h2>Before you visit a builder</h2>
+        <p class="when">Do these before you walk into any model home.</p>
+      </div>
+    </div>
+    <div>
+      <ul class="items">
+        <li class="item">
+          <label class="check"><input type="checkbox" data-key="c1"><span>
+            <h3>Pick a really great agent</h3>
+            <p>You need someone in your corner who knows the process, understands timelines, knows what they're looking at on a job site, and can talk to the builder when something goes wrong. Try to find someone who will actually help and not just drop you off like a kid at the daycare.</p>
+          </span></label>
+        </li>
+        <li class="item">
+          <label class="check"><input type="checkbox" data-key="c2"><span>
+            <h3>Bring your agent to your first visit</h3>
+            <p>Builders aren't obligated to include your agent if your agent wasn't with you on your first visit. Even if you drive past a community and decide to walk in, call your agent first so they can join you or register you in the builder's system before you walk into the model.</p>
+          </span></label>
+        </li>
+        <li class="item">
+          <label class="check"><input type="checkbox" data-key="c3"><span>
+            <h3>Only walk plans that fit your budget</h3>
+            <p>Walking plans you wouldn't actually buy makes you mix up features and layouts. That $1M model might be fun to see, but if it throws off your search, you will have another chance to walk them later.</p>
+          </span></label>
+        </li>
+      </ul>
+
+      <div class="notes">
+        <h4>My starting point</h4>
+        <p class="hint">Fill this in before your first builder visit.</p>
+        <div class="pair">
+          <label class="field"><span>My max price</span><input class="line" type="text" data-key="f_maxprice"></label>
+          <label class="field"><span>Pre-approved with</span><input class="line" type="text" data-key="f_lender"></label>
+        </div>
+        <div class="field"><span>Cities or areas I'm considering</span>
+          <div class="pair">
+            <div>
+            <input class="line" type="text" aria-label="Areas, line 1" data-key="f_areas1">
+            <input class="line" type="text" aria-label="Areas, line 2" data-key="f_areas2">
+            </div>
+            <div>
+            <input class="line" type="text" aria-label="Areas, line 3" data-key="f_areas3">
+            <input class="line" type="text" aria-label="Areas, line 4" data-key="f_areas4">
+            </div>
+          </div>
+        </div>
+        <div class="field"><span>My must-haves</span>
+          <div class="pair">
+            <div>
+            <input class="line" type="text" aria-label="Must-haves, line 1" data-key="f_must1">
+            <input class="line" type="text" aria-label="Must-haves, line 2" data-key="f_must2">
+            <input class="line" type="text" aria-label="Must-haves, line 3" data-key="f_must3">
+            </div>
+            <div>
+            <input class="line" type="text" aria-label="Must-haves, line 4" data-key="f_must4">
+            <input class="line" type="text" aria-label="Must-haves, line 5" data-key="f_must5">
+            <input class="line" type="text" aria-label="Must-haves, line 6" data-key="f_must6">
+            </div>
+          </div>
+        </div>
+        <div class="field"><span>My wants</span>
+          <div class="pair">
+            <div>
+            <input class="line" type="text" aria-label="Wants, line 1" data-key="f_want1">
+            <input class="line" type="text" aria-label="Wants, line 2" data-key="f_want2">
+            <input class="line" type="text" aria-label="Wants, line 3" data-key="f_want3">
+            </div>
+            <div>
+            <input class="line" type="text" aria-label="Wants, line 4" data-key="f_want4">
+            <input class="line" type="text" aria-label="Wants, line 5" data-key="f_want5">
+            <input class="line" type="text" aria-label="Wants, line 6" data-key="f_want6">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHASE 2 -->
+  <section class="phase" id="phase-2">
+    <div class="phase-head">
+      <span class="phase-num">2</span>
+      <div>
+        <h2>Touring and choosing a builder</h2>
+        <p class="when">Model homes, plans and incentives.</p>
+      </div>
+    </div>
+    <div>
+      <ul class="items">
+        <li class="item">
+          <label class="check"><input type="checkbox" data-key="c4"><span>
+            <h3>Compare layout and incentives first</h3>
+            <p>Most builders will have a similar bed and bath count. The flow and feel of each home is where they differ from one another. The incentive is what changes what you actually pay. Those two things matter most.</p>
+          </span></label>
+        </li>
+      </ul>
+
+      <div class="notes">
+        <h4>My top builders</h4>
+        <p class="hint">Write down each plan right after you walk it, while it's still fresh.</p>
+        <div class="table-wrap">
+          <table class="write" data-table="builders" data-rows="3">
+            <thead><tr><th>Builder</th><th>Community</th><th>Plan</th><th>Price</th><th>What I liked or didn't</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <h4>Incentives offered</h4>
+        <p class="hint">Ask what the incentive covers and when it ends. Offers change often.</p>
+        <div class="table-wrap">
+          <table class="write" data-table="incentives" data-rows="3">
+            <thead><tr><th>Builder</th><th>Amount</th><th>What it covers</th><th>Preferred lender required?</th><th>Expires</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <h4>Builder of choice</h4>
+        <div class="trio">
+          <label class="field"><span>Builder</span><input class="line" type="text" data-key="f_choice"></label>
+          <label class="field"><span>Community</span><input class="line" type="text" data-key="f_choice_comm"></label>
+          <label class="field"><span>Plan</span><input class="line" type="text" data-key="f_choice_plan"></label>
+        </div>
+        <div class="field"><span>Why I chose them</span>
+          <input class="line" type="text" aria-label="Why I chose them, line 1" data-key="f_why1">
+          <input class="line" type="text" aria-label="Why I chose them, line 2" data-key="f_why2">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHASE 3 -->
+  <section class="phase" id="phase-3">
+    <div class="phase-head">
+      <span class="phase-num">3</span>
+      <div>
+        <h2>Signing the contract</h2>
+        <p class="when">Before you sign anything.</p>
+      </div>
+    </div>
+    <div>
+      <ul class="items">
+        <li class="item">
+          <label class="check"><input type="checkbox" data-key="c5"><span>
+            <h3>Understand the builder's contract</h3>
+            <p>Most builders use their own personalized contracts. You and your agent should both understand what's expected of you and what happens with your money at every step.</p>
+          </span></label>
+        </li>
+      </ul>
+
+      <div class="notes">
+        <h4>My deposits and deadlines</h4>
+        <p class="hint">Go through these with your agent before signing.</p>
+        <div class="pair">
+          <label class="field"><span>Earnest money amount</span><input class="line" type="text" data-key="f_em_amt"></label>
+          <label class="field"><span>Due by</span><input class="line" type="text" data-key="f_em_due"></label>
+        </div>
+        <div class="table-wrap">
+          <table class="write" data-table="deposits" data-rows="3" data-preset="Construction deposit|Design deposit|">
+            <thead><tr><th>Other deposit or deadline</th><th>Amount</th><th>Due date</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table class="write qa" data-table="cq" data-rows="3" data-preset="What deposits can I get back?|What if my selection is out of stock?|When can I do an inspection?">
+            <thead><tr><th>Questions to ask about the contract</th><th>Answer</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table class="write qa" data-table="myq" data-rows="3">
+            <thead><tr><th>My own questions</th><th>Answer</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHASE 4 -->
+  <section class="phase" id="phase-4">
+    <div class="phase-head">
+      <span class="phase-num">4</span>
+      <div>
+        <h2>The design center</h2>
+        <p class="when">Choosing your finishes.</p>
+      </div>
+    </div>
+    <div>
+      <ul class="items">
+        <li class="item">
+          <label class="check"><input type="checkbox" data-key="c6"><span>
+            <h3>Get the design center options ahead of time</h3>
+            <p>If possible, get a PDF of the options before your appointment. Spend a bit of time going over it and make a simple list of what you want to spend your time on. You don't have to choose anything beforehand, but knowing there are five kinds of carpet to check out helps you use your time wisely. Now is when you check out models and create a Pinterest board. Just remember that most images you find are staged and not functional for everyday living. Use the images as inspiration for color and materials over actual design choices in your home.</p>
+          </span></label>
+        </li>
+        <li class="item">
+          <label class="check"><input type="checkbox" data-key="c7"><span>
+            <h3>Don't feel pressured to decide on your first trip</h3>
+            <p>Almost every builder plans two trips to the design center. They know there will be things you can't decide on, and the second trip is when you finalize your choices.</p>
+          </span></label>
+        </li>
+      </ul>
+
+      <div class="notes">
+        <h4>My design center plan</h4>
+        <div class="pair">
+          <label class="field"><span>Trip 1 date</span><input class="line" type="text" data-key="f_dc1"></label>
+          <label class="field"><span>Trip 2 date</span><input class="line" type="text" data-key="f_dc2"></label>
+        </div>
+        <div class="field"><span>What I want to spend my time on</span>
+          <input class="line" type="text" aria-label="Focus list, line 1" data-key="f_focus1">
+          <input class="line" type="text" aria-label="Focus list, line 2" data-key="f_focus2">
+          <input class="line" type="text" aria-label="Focus list, line 3" data-key="f_focus3">
+          <input class="line" type="text" aria-label="Focus list, line 4" data-key="f_focus4">
+        </div>
+        <div class="field"><span>Still deciding (bring these to trip 2)</span>
+          <input class="line" type="text" aria-label="Still deciding, line 1" data-key="f_undec1">
+          <input class="line" type="text" aria-label="Still deciding, line 2" data-key="f_undec2">
+          <input class="line" type="text" aria-label="Still deciding, line 3" data-key="f_undec3">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHASE 5 -->
+  <section class="phase" id="phase-5">
+    <div class="phase-head">
+      <span class="phase-num">5</span>
+      <div>
+        <h2>During the build</h2>
+        <p class="when">From groundbreaking to closing.</p>
+      </div>
+    </div>
+    <div>
+      <ul class="items">
+        <li class="item">
+          <label class="check"><input type="checkbox" data-key="c8"><span>
+            <h3>Never miss your builder walks</h3>
+            <p>Anytime the builder schedules a walkthrough, do what you can to make it. It's the one time you can meet with the superintendent face to face, ask questions and point out mistakes.</p>
+          </span></label>
+        </li>
+        <li class="item">
+          <label class="check"><input type="checkbox" data-key="c9"><span>
+            <h3>Check on your home, but stay out of the way</h3>
+            <p>Most builders are fine with you checking out the home as long as you stay out of the way of the subcontractors.</p>
+          </span></label>
+        </li>
+        <li class="item">
+          <label class="check"><input type="checkbox" data-key="c10"><span>
+            <h3>Trust the process</h3>
+            <p>No matter the home or price point, things will never be 100% perfect. During the build, things will look funny and messy. Trust the process, and in the end you'll have a beautiful home to love.</p>
+          </span></label>
+        </li>
+      </ul>
+
+      <div class="notes">
+        <h4>My build contacts and walks</h4>
+        <div class="pair">
+          <label class="field"><span>Superintendent</span><input class="line" type="text" data-key="f_super"></label>
+          <label class="field"><span>Phone</span><input class="line" type="text" data-key="f_super_ph"></label>
+        </div>
+        <div class="table-wrap">
+          <table class="write" data-table="walks" data-rows="4" data-tick="Attended">
+            <thead><tr><th>Walk</th><th>Date</th><th>Attended</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="print-newpage">
+          <h4>Issues to raise</h4>
+          <p class="hint">Write it down the day you notice it, then bring it to your agent.</p>
+          <div class="table-wrap">
+            <table class="write" data-table="issues" data-rows="8" data-tick="Fixed">
+              <thead><tr><th>Date</th><th>What I noticed</th><th>Fixed</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="field"><span>Other notes</span>
+            <input class="line" type="text" aria-label="Other notes, line 1" data-key="f_note1">
+            <input class="line" type="text" aria-label="Other notes, line 2" data-key="f_note2">
+            <input class="line" type="text" aria-label="Other notes, line 3" data-key="f_note3">
+            <input class="line" type="text" aria-label="Other notes, line 4" data-key="f_note4">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="contact">
+  <div class="contact-inner">
+    <div>
+      <p class="name">Will Dobesh</p>
+      <p class="sub">New construction and relocation expert, Utah County</p>
+    </div>
+    <p class="reach">
+      <a href="tel:+18014007976">801.400.7976</a><br>
+      <a href="mailto:will.dobesh@theperry.group">will.dobesh@theperry.group</a>
+    </p>
+    <div class="logos logo-print print-only"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzk0IiBoZWlnaHQ9IjQyNiIgdmlld0JveD0iMCAwIDc5NCA0MjYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8zNTRfMTUyKSI+CjxwYXRoIGQ9Ik0xODcuMTUgMTYuODQxOEgxNjcuNTI0VjQuNTA3MzFIMjIxLjA5M1YxNi44NDE4SDIwMS4zNzZWNjguNzkwOEgxODcuMTVWMTYuODQxOFoiIGZpbGw9IiMwNzA1MDUiLz4KPHBhdGggZD0iTTI2Ny4wMDkgNDEuOTYxSDI0MS45OFY2OC43ODk4SDIyNy44NDRWNC41MDczMUgyNDEuOThWMjkuMjY2M0gyNjcuMDA5VjQuNTA3MzFIMjgxLjIzNFY2OC43OTA4SDI2Ny4wMDlWNDEuOTYxWiIgZmlsbD0iIzA3MDUwNSIvPgo8cGF0aCBkPSJNMjkyLjM5NiA0LjUwNzMxSDMzNi45NjRWMTUuOTQxNUgzMDYuMzUxVjMwLjI1NzdIMzM1LjE2MlY0MS42OTE5SDMwNi4zNTFWNTcuMzU3NkgzMzguNzYzTDMzNy4zMjMgNjguNzkxOEgyOTIuMzk2VjQuNTA3MzFaIiBmaWxsPSIjMDcwNTA1Ii8+CjxwYXRoIGQ9Ik0xNzEuOTM0IDg5LjUzODNIMTk1LjA3NEMyMDEuMjU1IDg5LjUzODMgMjA2LjE3NyA5MC4zOTM2IDIwOS44MzkgOTIuMTA0M0MyMTMuNSA5My44MTM5IDIxNi4xNDIgOTYuMjE0OCAyMTcuNzYyIDk5LjMwNTlDMjE5LjM4MyAxMDIuMzk4IDIyMC4xOTMgMTA2LjA0NCAyMjAuMTkzIDExMC4yNDZDMjIwLjE5MyAxMTQuNTY2IDIxOS4zNjggMTE4LjMzNSAyMTcuNzE3IDEyMS41NDVDMjE2LjA2NiAxMjQuNzU2IDIxMy40MSAxMjcuMjQ3IDIwOS43NDkgMTI5LjAxOEMyMDYuMDg3IDEzMC43ODkgMjAxLjIyNSAxMzEuNjc0IDE5NS4xNjQgMTMxLjY3NEgxODUuNjJWMTUzLjgyMkgxNzEuOTM0Vjg5LjUzODNaTTIwNi45NTggMTEwLjQyNUMyMDYuOTU4IDEwNy4xMjUgMjA2LjExNyAxMDQuNzA4IDIwNC40MzYgMTAzLjE3N0MyMDIuNzU1IDEwMS42NDcgMTk5LjYzNCAxMDAuODgxIDE5NS4wNzQgMTAwLjg4MUgxODUuNjJWMTIwLjMyOEgxOTUuMTY0QzE5OS43ODUgMTIwLjMyOCAyMDIuOTA2IDExOS40NzMgMjA0LjUyNiAxMTcuNzYzQzIwNi4xNDcgMTE2LjA1MiAyMDYuOTU4IDExMy42MDcgMjA2Ljk1OCAxMTAuNDI1WiIgZmlsbD0iIzA3MDUwNSIvPgo8cGF0aCBkPSJNMjI4LjU2NCA4OS41MzgzSDI3My4xM1YxMDAuOTcySDI0Mi41MTlWMTE1LjI4OUgyNzEuMzNWMTI2LjcyM0gyNDIuNTE5VjE0Mi4zODlIMjc0LjkzTDI3My40OTEgMTUzLjgyM0gyMjguNTY0Vjg5LjUzODNaIiBmaWxsPSIjMDcwNTA1Ii8+CjxwYXRoIGQ9Ik0yODIuNDA0IDg5LjUzODNIMzA2LjYyM0MzMTIuNjg1IDg5LjUzODMgMzE3LjUzMSA5MC4zNzk2IDMyMS4xNjMgOTIuMDU5MkMzMjQuNzk0IDkzLjc0MDggMzI3LjQyIDk2LjA2NTcgMzI5LjA0MSA5OS4wMzc4QzMzMC42NjEgMTAyLjAwOSAzMzEuNDczIDEwNS4zODUgMzMxLjQ3MyAxMDkuMTY2QzMzMS40NzMgMTEzLjI0OSAzMzAuNjMxIDExNi43ODkgMzI4Ljk1MSAxMTkuNzlDMzI3LjI2OSAxMjIuNzkxIDMyNC42ODggMTI1LjE5MSAzMjEuMjA4IDEyNi45OTJMMzM0LjYyMyAxNTMuODIySDMxOS43NjdMMzA4LjUxMyAxMzAuMDUzQzMwOC4wMzIgMTMwLjA1MyAzMDcuNTUyIDEzMC4wNjkgMzA3LjA3MyAxMzAuMDk4QzMwNi41OTMgMTMwLjEyOSAzMDYuMTEyIDEzMC4xNDMgMzA1LjYzMyAxMzAuMTQzSDI5NS45MDlWMTUzLjgyMkgyODIuNDA0Vjg5LjUzODNaTTMxNy43ODcgMTA5LjYxNUMzMTcuNzg3IDEwNi42MTUgMzE2LjkxNiAxMDQuMzQ4IDMxNS4xNzcgMTAyLjgxN0MzMTMuNDM1IDEwMS4yODggMzEwLjI4MyAxMDAuNTIxIDMwNS43MjMgMTAwLjUyMUgyOTUuOTA5VjExOS4yNDlIMzA2LjI2M0MzMTAuNzA0IDExOS4yNDkgMzEzLjczNiAxMTguNDI1IDMxNS4zNTcgMTE2Ljc3MkMzMTYuOTc3IDExNS4xMjMgMzE3Ljc4OCAxMTIuNzM3IDMxNy43ODggMTA5LjYxNUgzMTcuNzg3WiIgZmlsbD0iIzA3MDUwNSIvPgo8cGF0aCBkPSJNMzQxLjAxNSA4OS41MzgzSDM2NS4yMzRDMzcxLjI5NiA4OS41MzgzIDM3Ni4xNDIgOTAuMzc5NiAzNzkuNzc0IDkyLjA1OTJDMzgzLjQwNSA5My43NDA4IDM4Ni4wMzIgOTYuMDY1NyAzODcuNjUyIDk5LjAzNzhDMzg5LjI3MyAxMDIuMDA5IDM5MC4wODMgMTA1LjM4NSAzOTAuMDgzIDEwOS4xNjZDMzkwLjA4MyAxMTMuMjQ5IDM4OS4yNDIgMTE2Ljc4OSAzODcuNTYyIDExOS43OUMzODUuODggMTIyLjc5MSAzODMuMjk5IDEyNS4xOTEgMzc5LjgxOSAxMjYuOTkyTDM5My4yMzQgMTUzLjgyMkgzNzguMzc4TDM2Ny4xMjQgMTMwLjA1M0MzNjYuNjQzIDEzMC4wNTMgMzY2LjE2MyAxMzAuMDY5IDM2NS42ODQgMTMwLjA5OEMzNjUuMjAzIDEzMC4xMjkgMzY0LjcyMyAxMzAuMTQzIDM2NC4yNDQgMTMwLjE0M0gzNTQuNTJWMTUzLjgyMkgzNDEuMDE1Vjg5LjUzODNaTTM3Ni4zOTggMTA5LjYxNUMzNzYuMzk4IDEwNi42MTUgMzc1LjUyNyAxMDQuMzQ4IDM3My43ODcgMTAyLjgxN0MzNzIuMDQ1IDEwMS4yODggMzY4Ljg5NCAxMDAuNTIxIDM2NC4zMzQgMTAwLjUyMUgzNTQuNTJWMTE5LjI0OUgzNjQuODc0QzM2OS4zMTQgMTE5LjI0OSAzNzIuMzQ4IDExOC40MjUgMzczLjk2OCAxMTYuNzcyQzM3NS41ODggMTE1LjEyMyAzNzYuMzk5IDExMi43MzcgMzc2LjM5OSAxMDkuNjE1SDM3Ni4zOThaIiBmaWxsPSIjMDcwNTA1Ii8+CjxwYXRoIGQ9Ik00MTIuMDUgMTI4LjI1MkwzOTAuMzUyIDg5LjUzODNINDA1Ljc0OUw0MTkuMjU0IDExNi44MThMNDMzLjAyOSA4OS41MzgzSDQ0Ny44ODRMNDI2LjM2NiAxMjguMjUyVjE1My44MjJINDEyLjA1MVYxMjguMjUySDQxMi4wNVoiIGZpbGw9IiMwNzA1MDUiLz4KPHBhdGggZD0iTTQ2OS44NTEgMTIxLjg1OUM0NjkuODUxIDExNS4wMTcgNDcxLjAzNiAxMDkuMDYgNDczLjQwNyAxMDMuOTg4QzQ3NS43NzcgOTguOTE2NyA0NzkuMjQ0IDk0Ljk3MDMgNDgzLjgwNiA5Mi4xNDkzQzQ4OC4zNjggODkuMzI4MiA0OTMuODkgODcuOTE3NyA1MDAuMzczIDg3LjkxNzdDNTA3Ljk5NSA4Ny45MTc3IDUxMy45OTcgODkuNzA0NCA1MTguMzggOTMuMjc0N0M1MjIuNzYgOTYuODQ2IDUyNS41MjIgMTAxLjcyMyA1MjYuNjYyIDEwNy45MDRMNTEyLjYxOCAxMDkuNDM1QzUxMS44MzYgMTA2LjQzNCA1MTAuNTQ3IDEwNC4wOTMgNTA4Ljc0NiAxMDIuNDEyQzUwNi45NDUgMTAwLjczMSA1MDQuMTI0IDk5Ljg5MDEgNTAwLjI4MyA5OS44OTAxQzQ5Ni41MDIgOTkuODkwMSA0OTMuNDU1IDEwMC44MjEgNDkxLjE0NCAxMDIuNjgxQzQ4OC44MzIgMTA0LjU0MiA0ODcuMTUyIDEwNy4wOTMgNDg2LjEwMiAxMTAuMzM0QzQ4NS4wNTIgMTEzLjU3NCA0ODQuNTI3IDExNy4zMjYgNDg0LjUyNyAxMjEuNTg4QzQ4NC41MjcgMTI4LjYxMSA0ODUuOTA3IDEzNC4wMTMgNDg4LjY2OSAxMzcuNzk0QzQ5MS40MjkgMTQxLjU3NCA0OTUuODEyIDE0My40NjYgNTAxLjgxNCAxNDMuNDY2QzUwNi43OTUgMTQzLjQ2NiA1MTAuOTk4IDE0Mi40MTYgNTE0LjQxOSAxNDAuMzE1VjEyOS43ODFINTAxLjkwNFYxMTguNTI3SDUyNy42NTNWMTQ2LjYxN0M1MjQuMjMyIDE0OS40OTggNTIwLjE4IDE1MS42OSA1MTUuNSAxNTMuMTlDNTEwLjgxNyAxNTQuNjg5IDUwNi4wNzUgMTU1LjQ0IDUwMS4yNzQgMTU1LjQ0QzQ5MS4yNDkgMTU1LjQ0IDQ4My41MDYgMTUyLjUxNCA0NzguMDQ1IDE0Ni42NjJDNDcyLjU4MyAxNDAuODEgNDY5Ljg1MyAxMzIuNTQzIDQ2OS44NTMgMTIxLjg1OEw0NjkuODUxIDEyMS44NTlaIiBmaWxsPSIjMDcwNTA1Ii8+CjxwYXRoIGQ9Ik01MzcuMjg0IDg5LjUzODNINTYxLjUwM0M1NjcuNTY1IDg5LjUzODMgNTcyLjQxIDkwLjM3OTYgNTc2LjA0MyA5Mi4wNTkyQzU3OS42NzQgOTMuNzQwOCA1ODIuMyA5Ni4wNjU3IDU4My45MjEgOTkuMDM3OEM1ODUuNTQxIDEwMi4wMDkgNTg2LjM1MiAxMDUuMzg1IDU4Ni4zNTIgMTA5LjE2NkM1ODYuMzUyIDExMy4yNDkgNTg1LjUxIDExNi43ODkgNTgzLjgzMSAxMTkuNzlDNTgyLjE0OSAxMjIuNzkxIDU3OS41NjggMTI1LjE5MSA1NzYuMDg4IDEyNi45OTJMNTg5LjUwMyAxNTMuODIySDU3NC42NDdMNTYzLjM5MyAxMzAuMDUzQzU2Mi45MTIgMTMwLjA1MyA1NjIuNDMyIDEzMC4wNjkgNTYxLjk1MyAxMzAuMDk4QzU2MS40NzMgMTMwLjEyOSA1NjAuOTkyIDEzMC4xNDMgNTYwLjUxMiAxMzAuMTQzSDU1MC43ODlWMTUzLjgyMkg1MzcuMjg0Vjg5LjUzODNaTTU3Mi42NjcgMTA5LjYxNUM1NzIuNjY3IDEwNi42MTUgNTcxLjc5NiAxMDQuMzQ4IDU3MC4wNTYgMTAyLjgxN0M1NjguMzE1IDEwMS4yODggNTY1LjE2MyAxMDAuNTIxIDU2MC42MDMgMTAwLjUyMUg1NTAuNzg5VjExOS4yNDlINTYxLjE0M0M1NjUuNTg0IDExOS4yNDkgNTY4LjYxNiAxMTguNDI1IDU3MC4yMzcgMTE2Ljc3MkM1NzEuODU3IDExNS4xMjMgNTcyLjY2OCAxMTIuNzM3IDU3Mi42NjggMTA5LjYxNUg1NzIuNjY3WiIgZmlsbD0iIzA3MDUwNSIvPgo8cGF0aCBkPSJNNTkyLjgzNSAxMjEuODU5QzU5Mi44MzUgMTE0LjY1NiA1OTQuMTA4IDEwOC41MiA1OTYuNjYgMTAzLjQ0N0M1OTkuMjExIDk4LjM3NjUgNjAyLjgyOCA5NC41MjAxIDYwNy41MSA5MS44NzkyQzYxMi4xOTIgODkuMjM4MiA2MTcuNjg0IDg3LjkxNzcgNjIzLjk4NiA4Ny45MTc3QzYzMC4yODkgODcuOTE3NyA2MzUuNzUgODkuMjIzMiA2NDAuMzcyIDkxLjgzNDJDNjQ0Ljk5MyA5NC40NDQxIDY0OC41NSA5OC4yNDE1IDY1MS4wNDEgMTAzLjIyM0M2NTMuNTMxIDEwOC4yMDYgNjU0Ljc3OCAxMTQuMjY4IDY1NC43NzggMTIxLjQxQzY1NC43NzggMTI4LjYxMyA2NTMuNTE2IDEzNC43NTEgNjUwLjk5NiAxMzkuODIyQzY0OC40NzQgMTQ0Ljg5NSA2NDQuOTAzIDE0OC43NjYgNjQwLjI4MiAxNTEuNDM2QzYzNS42NiAxNTQuMTA2IDYzMC4xMzggMTU1LjQ0MiA2MjMuNzE1IDE1NS40NDJDNjE3LjQxMyAxNTUuNDQyIDYxMS45NTEgMTU0LjEzNyA2MDcuMzI5IDE1MS41MjZDNjAyLjcwNyAxNDguOTE1IDU5OS4xMzcgMTQ1LjEyIDU5Ni42MTUgMTQwLjEzN0M1OTQuMDk0IDEzNS4xNTYgNTkyLjgzNSAxMjkuMDYzIDU5Mi44MzUgMTIxLjg1OVpNNjA3LjYgMTIxLjY3OUM2MDcuNiAxMjguNDAyIDYwOC45NTEgMTMzLjY2OCA2MTEuNjUyIDEzNy40OEM2MTQuMzUzIDE0MS4yOTIgNjE4LjQwNCAxNDMuMTk3IDYyMy44MDYgMTQzLjE5N0M2MjkuMTQ3IDE0My4xOTcgNjMzLjE4NCAxNDEuMjkyIDYzNS45MTUgMTM3LjQ4QzYzOC42NDUgMTMzLjY2OCA2NDAuMDExIDEyOC40MDIgNjQwLjAxMSAxMjEuNjc5QzY0MC4wMTEgMTE0Ljk1NiA2MzguNjQ2IDEwOS42OTEgNjM1LjkxNSAxMDUuODc4QzYzMy4xODQgMTAyLjA2NyA2MjkuMTQ2IDEwMC4xNjEgNjIzLjgwNiAxMDAuMTYxQzYxOC40MDQgMTAwLjE2MSA2MTQuMzUzIDEwMi4wNjcgNjExLjY1MiAxMDUuODc4QzYwOC45NTEgMTA5LjY5MSA2MDcuNiAxMTQuOTU4IDYwNy42IDEyMS42NzlaIiBmaWxsPSIjMDcwNTA1Ii8+CjxwYXRoIGQ9Ik02NjMuMjQgMTI3LjQ0MVY4OS41MzczSDY3Ny40NjVWMTI4LjA3MUM2NzcuNDY1IDEzMy4xNzQgNjc4LjQxIDEzNi45NzEgNjgwLjMwMSAxMzkuNDYxQzY4Mi4xOTMgMTQxLjk1MiA2ODUuMjY4IDE0My4xOTcgNjg5LjUzIDE0My4xOTdDNjkzLjkxMSAxNDMuMTk3IDY5Ny4wMDMgMTQxLjk1MiA2OTguODA0IDEzOS40NjFDNzAwLjYwNCAxMzYuOTcyIDcwMS41MDUgMTMzLjE3NCA3MDEuNTA1IDEyOC4wNzFWODkuNTM3M0g3MTUuNzNWMTI3LjYyQzcxNS43MyAxMzcuMDQ1IDcxMy40NjQgMTQ0LjAzNyA3MDguOTMyIDE0OC41OTlDNzA0LjQwMSAxNTMuMTYyIDY5Ny44NzIgMTU1LjQ0MSA2ODkuMzUgMTU1LjQ0MUM2ODAuODI4IDE1NS40NDEgNjc0LjM0NSAxNTMuMTc2IDY2OS45MDQgMTQ4LjY0NEM2NjUuNDYxIDE0NC4xMTMgNjYzLjI0MiAxMzcuMDQ1IDY2My4yNDIgMTI3LjQ0MUg2NjMuMjRaIiBmaWxsPSIjMDcwNTA1Ii8+CjxwYXRoIGQ9Ik03MjYuMjYzIDg5LjUzODNINzQ5LjQwMUM3NTUuNTgzIDg5LjUzODMgNzYwLjUwNSA5MC4zOTM2IDc2NC4xNjcgOTIuMTA0M0M3NjcuODI3IDkzLjgxMzkgNzcwLjQ3IDk2LjIxNDggNzcyLjA5IDk5LjMwNTlDNzczLjcxMSAxMDIuMzk4IDc3NC41MjEgMTA2LjA0NCA3NzQuNTIxIDExMC4yNDZDNzc0LjUyMSAxMTQuNTY2IDc3My42OTYgMTE4LjMzNSA3NzIuMDQ1IDEyMS41NDVDNzcwLjM5NCAxMjQuNzU2IDc2Ny43MzcgMTI3LjI0NyA3NjQuMDc2IDEyOS4wMThDNzYwLjQxNSAxMzAuNzg5IDc1NS41NTIgMTMxLjY3NCA3NDkuNDkxIDEzMS42NzRINzM5Ljk0OVYxNTMuODIySDcyNi4yNjNWODkuNTM4M1pNNzYxLjI4NSAxMTAuNDI1Qzc2MS4yODUgMTA3LjEyNSA3NjAuNDQ0IDEwNC43MDggNzU4Ljc2NCAxMDMuMTc3Qzc1Ny4wODMgMTAxLjY0NyA3NTMuOTYyIDEwMC44ODEgNzQ5LjQwMSAxMDAuODgxSDczOS45NDlWMTIwLjMyOEg3NDkuNDkxQzc1NC4xMTMgMTIwLjMyOCA3NTcuMjM0IDExOS40NzMgNzU4Ljg1NCAxMTcuNzYzQzc2MC40NzUgMTE2LjA1MiA3NjEuMjg1IDExMy42MDcgNzYxLjI4NSAxMTAuNDI1WiIgZmlsbD0iIzA3MDUwNSIvPgo8cGF0aCBkPSJNMTQ2LjQ3NyA2OS4xNzU5QzE0Ni40NzcgMzEuNDQzMSAxMTUuODkgMC44NTQ5OCA3OC4xNTYzIDAuODU0OThDNDAuNDIyNSAwLjg1NDk4IDkuODMzMzYgMzEuNDQzMSA5LjgzMzM2IDY5LjE3NTlDOS44MzMzNiA4OS4zMzUyIDE4LjYxODYgMTA3LjQgMzIuNTA2NiAxMTkuOTAzQzMyLjQ3ODYgMTE5Ljk0NCAzMi40NjE2IDExOS45ODkgMzIuNDM2NiAxMjAuMDI3TDc4LjE0NzMgMTU5LjA5NEwxMjMuNTM5IDEyMC4yOTlDMTIzLjUxNyAxMjAuMjY4IDEyMy40OTcgMTIwLjIzNSAxMjMuNDc1IDEyMC4yMDdDMTM3LjU1NCAxMDcuNjkgMTQ2LjQ3NyA4OS40OTczIDE0Ni40NzcgNjkuMTc1OVoiIGZpbGw9IiMwNzA1MDUiLz4KPHBhdGggZD0iTTAuODMwMDc4IDIyNC4zMTRINzkzLjExOVYyMTYuODc4SDAuODMwMDc4VjIyNC4zMTRaIiBmaWxsPSIjMDcwNTA1Ii8+CjxwYXRoIGQ9Ik00MTQuMjU0IDM1OS4yMzdDNDExLjcwMSAzNjEuMTIzIDQxMC40MDMgMzY0LjAwNSA0MTAuNDAzIDM2Ny43MzFDNDEwLjQwMyAzNzEuNDU2IDQxMS42NzYgMzc0LjA3MyA0MTQuMTg1IDM3NS44NzFDNDE2LjcyNCAzNzcuNjkgNDIwLjU3OSAzNzguNjEyIDQyNS42NDEgMzc4LjYxMkM0MzIuMjk1IDM3OC42MTIgNDM3IDM3Ny4xODIgNDQwLjAzMSAzNzQuMjM5QzQ0MS41OTQgMzcyLjczOCA0NDIuNjI4IDM3MC4yNDggNDQyLjYyOCAzNjIuOTc5VjM1Ni4zNjNINDI1LjU1N0M0MjAuNjA2IDM1Ni4zNjMgNDE2LjgwMyAzNTcuMzU2IDQxNC4yNSAzNTkuMjM3SDQxNC4yNTRaTTIyOC4wMDUgMjgxLjAzN1Y0MjUuODU0SDU2NS45NDRWMjgxLjAzN0gyMjguMDA1Wk0zMzQuNDk5IDMxOS40NDRWMzI4LjY5OUwzMzMuOTUzIDMyOC42OTNMMzA1LjYzNyAzMjguNTA3TDMwNS42NjQgMzg3LjZIMjk2LjI3MVYzMTkuNDQ0SDMzNC40OTlaTTM1NC45OTUgMzc1LjA4NEMzNTcuNTQ3IDM3Ny40MDUgMzYxLjQzIDM3OC41MzQgMzY2Ljg4MiAzNzguNTM0QzM3NC4wNDcgMzc4LjUzNCAzNzkuMjE5IDM3Ni4xNjkgMzgyLjY5MyAzNzEuMzA0TDM4My4xMDIgMzcwLjczMkwzODMuNjEyIDM3MS4yMTlMMzg5Ljg1NCAzNzcuMTcxTDM4OS41MTQgMzc3LjYwOEMzODYuNTMyIDM4MS40MjggMzgzLjI1NSAzODQuMDI1IDM3OS40ODUgMzg1LjU1NEMzNzUuODUxIDM4Ni45OSAzNzEuOTk0IDM4Ny42MDEgMzY2LjU4IDM4Ny42MDFDMzU3LjYyMiAzODcuNjAxIDM1MS42NSAzODUuODc1IDM0Ny43NyAzODIuMTc0QzM0NC4wNyAzNzguNjQ1IDM0Mi4zNjQgMzczLjM1MSAzNDIuMzY0IDM2NS41MTVWMzM5LjQ0OUMzNDIuMzY0IDMzNC4zOTcgMzQzLjY0MSAzMzAuNjk1IDM0Ni41NDMgMzI3LjQ1NEMzNTAuMjggMzIzLjI4MSAzNTYuNTk1IDMyMC4yNTcgMzYyLjI2OCAzMTkuOTMxQzM2My40NzcgMzE5LjgyOSAzNjQuNzY4IDMxOS43NzYgMzY2LjEwMSAzMTkuNzc2QzM2Ny43NDkgMzE5Ljc3NiAzNjkuMTUyIDMxOS44MiAzNzAuMzkzIDMxOS45MTdDMzc3Ljg3OCAzMjAuMjI0IDM4My4xMjYgMzIyLjE2OSAzODYuOTEzIDMyNi4wNDFDMzkwLjIxIDMyOS40MjYgMzkxLjYxOCAzMzMuMzkyIDM5MS42MTggMzM5LjMyN0MzOTEuNjE4IDM0NS43MjIgMzg5LjggMzUwLjIzNiAzODUuOSAzNTMuNTY5QzM4MS44OTYgMzU2Ljk4NyAzNzYuNTc5IDM1OC41NDcgMzY5LjE3NCAzNTguNTQ3SDM1MS4zMTlWMzY0LjcxM0MzNTEuMzE5IDM2OS40MzYgMzUyLjUxNCAzNzIuODMxIDM1NC45OTUgMzc1LjA4NFpNNDUxLjU4NCAzNjcuNDQzQzQ1MS41ODQgMzcyLjQ5OSA0NTAuMzA3IDM3Ni4xOTcgNDQ3LjQwMyAzNzkuNDM4QzQ0My42NjkgMzgzLjYxMiA0MzcuMzUyIDM4Ni42MzggNDMxLjY3OSAzODYuOTY0QzQzMC40NzEgMzg3LjA2MyA0MjkuMTc5IDM4Ny4xMTYgNDI3Ljg0NiAzODcuMTE2QzQyNi4xOTcgMzg3LjExNiA0MjQuNzk1IDM4Ny4wNjkgNDIzLjU1MyAzODYuOTcyQzQxNi4wNjggMzg2LjY2NSA0MTAuODIgMzg0LjcxOCA0MDcuMDM1IDM4MC44NDNDNDAzLjczOCAzNzcuNDU3IDQwMi4zMyAzNzMuNDgzIDQwMi4zMyAzNjcuNTVDNDAyLjMzIDM2MS4xNTIgNDA0LjE0NyAzNTYuNjIyIDQwOC4wNDggMzUzLjI4OUM0MTIuMDUgMzQ5Ljg3MSA0MTcuMzY2IDM0OC4yNzggNDI0Ljc3MyAzNDguMjc4SDQ0Mi42MjZWMzQyLjE4MUM0NDIuNjI2IDMzNy40NTggNDQxLjQzMiAzMzQuMDYzIDQzOC45NTEgMzMxLjgwN0M0MzYuMzk4IDMyOS40ODYgNDMyLjUxNyAzMjguMzU3IDQyNy4wNjQgMzI4LjM1N0M0MTkuOSAzMjguMzU3IDQxNC43MjggMzMwLjcyMiA0MTEuMjU0IDMzNS41ODdMNDEwLjg0NSAzMzYuMTU5TDQxMC4zMzIgMzM1LjY3Mkw0MDQuNDkzIDMzMC4xMDJMNDA0LjA4OSAzMjkuNzJMNDA0LjQyOSAzMjkuMjgzQzQwNy40MTEgMzI1LjQ2MyA0MTAuNjg5IDMyMi44NjYgNDE0LjQ1OCAzMjEuMzM3QzQxOC4wOTIgMzE5LjkwMSA0MjEuOTUxIDMxOS4yOSA0MjcuMzY0IDMxOS4yOUM0MzYuMzIyIDMxOS4yOSA0NDIuMjk0IDMyMS4wMTYgNDQ2LjE3NCAzMjQuNzE3QzQ0OS44NzUgMzI4LjI0NiA0NTEuNTgxIDMzMy41NCA0NTEuNTgxIDM0MS4zNzZWMzY3LjQ0Mkg0NTEuNTg0VjM2Ny40NDNaTTQ5Ny42NzUgMzg3LjZINDU5LjQ0OFYzNzguMTk3TDQ1OS45OTUgMzc4LjJMNDg4LjMxIDM3OC4zODVMNDg4LjI4MiAzMTkuNDQ1SDQ5Ny42NzRWMzg3LjYwMUw0OTcuNjc1IDM4Ny42Wk0zNzkuNjk1IDM0Ny42MjJDMzgyLjI0NSAzNDUuNzM2IDM4My41NDMgMzQyLjg5IDM4My41NDMgMzM5LjE2NEMzODMuNTQzIDMzNS40MzkgMzgyLjI3IDMzMi44MjIgMzc5Ljc2MSAzMzEuMDI0QzM3Ny4yMjIgMzI5LjIwNSAzNzMuMzY4IDMyOC4yODMgMzY4LjMwNCAzMjguMjgzQzM2MS42NSAzMjguMjgzIDM1Ni45NDcgMzI5LjcxMSAzNTMuOTE1IDMzMi42NTZDMzUyLjM1IDMzNC4xNTYgMzUxLjMxOCAzMzYuNjQ3IDM1MS4zMTggMzQzLjkxNlYzNTAuNDYySDM2OC4zODlDMzczLjMzOSAzNTAuNDYyIDM3Ny4xNDIgMzQ5LjUwNSAzNzkuNjk1IDM0Ny42MjJaIiBmaWxsPSIjMDcwNTA1Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMzU0XzE1MiI+CjxyZWN0IHdpZHRoPSI3OTIuMjg5IiBoZWlnaHQ9IjQyNSIgZmlsbD0id2hpdGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuODMwMDc4IDAuODU0OTgpIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==" alt="The Perry Group | Real Broker, LLC" width="794" height="426"></div>
+    <div class="logos logo-web"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzk0IiBoZWlnaHQ9IjQyNiIgdmlld0JveD0iMCAwIDc5NCA0MjYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8zNTNfNjcpIj4KPHBhdGggZD0iTTE4Ny4xNSAxNi44NDE1SDE2Ny41MjNWNC41MDY5NkgyMjEuMDkzVjE2Ljg0MTVIMjAxLjM3NlY2OC43OTA0SDE4Ny4xNVYxNi44NDE1WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTI2Ny4wMDkgNDEuOTYwNkgyNDEuOThWNjguNzg5NEgyMjcuODQ0VjQuNTA2OTZIMjQxLjk4VjI5LjI2NkgyNjcuMDA5VjQuNTA2OTZIMjgxLjIzNFY2OC43OTA0SDI2Ny4wMDlWNDEuOTYwNloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0yOTIuMzk2IDQuNTA2OTZIMzM2Ljk2NFYxNS45NDExSDMwNi4zNTJWMzAuMjU3NEgzMzUuMTYyVjQxLjY5MTVIMzA2LjM1MlY1Ny4zNTcySDMzOC43NjNMMzM3LjMyMyA2OC43OTE0SDI5Mi4zOTZWNC41MDY5NloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xNzEuOTM1IDg5LjUzOEgxOTUuMDc0QzIwMS4yNTUgODkuNTM4IDIwNi4xNzcgOTAuMzkzMyAyMDkuODM5IDkyLjEwMzlDMjEzLjUgOTMuODEzNSAyMTYuMTQyIDk2LjIxNDQgMjE3Ljc2MiA5OS4zMDU1QzIxOS4zODMgMTAyLjM5OCAyMjAuMTkzIDEwNi4wNDQgMjIwLjE5MyAxMTAuMjQ2QzIyMC4xOTMgMTE0LjU2NiAyMTkuMzY4IDExOC4zMzQgMjE3LjcxNyAxMjEuNTQ1QzIxNi4wNjYgMTI0Ljc1NiAyMTMuNDEgMTI3LjI0NyAyMDkuNzQ5IDEyOS4wMTdDMjA2LjA4NyAxMzAuNzg5IDIwMS4yMjUgMTMxLjY3MyAxOTUuMTY0IDEzMS42NzNIMTg1LjYyMVYxNTMuODIxSDE3MS45MzVWODkuNTM4Wk0yMDYuOTU4IDExMC40MjVDMjA2Ljk1OCAxMDcuMTI0IDIwNi4xMTcgMTA0LjcwNyAyMDQuNDM2IDEwMy4xNzdDMjAyLjc1NSAxMDEuNjQ2IDE5OS42MzQgMTAwLjg4MSAxOTUuMDc0IDEwMC44ODFIMTg1LjYyMVYxMjAuMzI3SDE5NS4xNjRDMTk5Ljc4NSAxMjAuMzI3IDIwMi45MDYgMTE5LjQ3MyAyMDQuNTI2IDExNy43NjJDMjA2LjE0NyAxMTYuMDUyIDIwNi45NTggMTEzLjYwNyAyMDYuOTU4IDExMC40MjVaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMjI4LjU2MyA4OS41MzhIMjczLjEzVjEwMC45NzJIMjQyLjUxOVYxMTUuMjg4SDI3MS4zMjlWMTI2LjcyM0gyNDIuNTE5VjE0Mi4zODhIMjc0LjkyOUwyNzMuNDkgMTUzLjgyMkgyMjguNTYzVjg5LjUzOFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0yODIuNDAzIDg5LjUzOEgzMDYuNjIyQzMxMi42ODQgODkuNTM4IDMxNy41MyA5MC4zNzkzIDMyMS4xNjIgOTIuMDU4OUMzMjQuNzk0IDkzLjc0MDUgMzI3LjQyIDk2LjA2NTMgMzI5LjA0IDk5LjAzNzRDMzMwLjY2MSAxMDIuMDA5IDMzMS40NzIgMTA1LjM4NSAzMzEuNDcyIDEwOS4xNjZDMzMxLjQ3MiAxMTMuMjQ5IDMzMC42MzEgMTE2Ljc4OSAzMjguOTUgMTE5Ljc5QzMyNy4yNjkgMTIyLjc5MSAzMjQuNjg4IDEyNS4xOTEgMzIxLjIwNyAxMjYuOTkyTDMzNC42MjIgMTUzLjgyMUgzMTkuNzY3TDMwOC41MTMgMTMwLjA1M0MzMDguMDMyIDEzMC4wNTMgMzA3LjU1MSAxMzAuMDY5IDMwNy4wNzIgMTMwLjA5OEMzMDYuNTkyIDEzMC4xMjkgMzA2LjExMiAxMzAuMTQzIDMwNS42MzMgMTMwLjE0M0gyOTUuOTA4VjE1My44MjFIMjgyLjQwM1Y4OS41MzhaTTMxNy43ODYgMTA5LjYxNEMzMTcuNzg2IDEwNi42MTQgMzE2LjkxNiAxMDQuMzQ3IDMxNS4xNzYgMTAyLjgxN0MzMTMuNDM1IDEwMS4yODcgMzEwLjI4MiAxMDAuNTIxIDMwNS43MjMgMTAwLjUyMUgyOTUuOTA4VjExOS4yNDlIMzA2LjI2M0MzMTAuNzA0IDExOS4yNDkgMzEzLjczNiAxMTguNDI0IDMxNS4zNTYgMTE2Ljc3MkMzMTYuOTc3IDExNS4xMjIgMzE3Ljc4NyAxMTIuNzM2IDMxNy43ODcgMTA5LjYxNEgzMTcuNzg2WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTM0MS4wMTUgODkuNTM4SDM2NS4yMzNDMzcxLjI5NiA4OS41MzggMzc2LjE0MSA5MC4zNzkzIDM3OS43NzQgOTIuMDU4OUMzODMuNDA0IDkzLjc0MDUgMzg2LjAzMSA5Ni4wNjUzIDM4Ny42NTIgOTkuMDM3NEMzODkuMjcyIDEwMi4wMDkgMzkwLjA4MyAxMDUuMzg1IDM5MC4wODMgMTA5LjE2NkMzOTAuMDgzIDExMy4yNDkgMzg5LjI0MSAxMTYuNzg5IDM4Ny41NjIgMTE5Ljc5QzM4NS44OCAxMjIuNzkxIDM4My4yOTggMTI1LjE5MSAzNzkuODE5IDEyNi45OTJMMzkzLjIzNCAxNTMuODIxSDM3OC4zNzdMMzY3LjEyMyAxMzAuMDUzQzM2Ni42NDMgMTMwLjA1MyAzNjYuMTYzIDEzMC4wNjkgMzY1LjY4NCAxMzAuMDk4QzM2NS4yMDIgMTMwLjEyOSAzNjQuNzIyIDEzMC4xNDMgMzY0LjI0MyAxMzAuMTQzSDM1NC41MlYxNTMuODIxSDM0MS4wMTVWODkuNTM4Wk0zNzYuMzk4IDEwOS42MTRDMzc2LjM5OCAxMDYuNjE0IDM3NS41MjYgMTA0LjM0NyAzNzMuNzg3IDEwMi44MTdDMzcyLjA0NSAxMDEuMjg3IDM2OC44OTQgMTAwLjUyMSAzNjQuMzMzIDEwMC41MjFIMzU0LjUyVjExOS4yNDlIMzY0Ljg3M0MzNjkuMzE0IDExOS4yNDkgMzcyLjM0NyAxMTguNDI0IDM3My45NjggMTE2Ljc3MkMzNzUuNTg3IDExNS4xMjIgMzc2LjM5OSAxMTIuNzM2IDM3Ni4zOTkgMTA5LjYxNEgzNzYuMzk4WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTQxMi4wNSAxMjguMjUyTDM5MC4zNTMgODkuNTM4SDQwNS43NDlMNDE5LjI1NCAxMTYuODE4TDQzMy4wMjkgODkuNTM4SDQ0Ny44ODVMNDI2LjM2NyAxMjguMjUyVjE1My44MjFINDEyLjA1MVYxMjguMjUySDQxMi4wNVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik00NjkuODUxIDEyMS44NTlDNDY5Ljg1MSAxMTUuMDE2IDQ3MS4wMzUgMTA5LjA2IDQ3My40MDcgMTAzLjk4N0M0NzUuNzc3IDk4LjkxNjMgNDc5LjI0MyA5NC45Njk4IDQ4My44MDYgOTIuMTQ4OEM0ODguMzY3IDg5LjMyNzggNDkzLjg4OSA4Ny45MTcyIDUwMC4zNzMgODcuOTE3MkM1MDcuOTk0IDg3LjkxNzIgNTEzLjk5NyA4OS43MDM5IDUxOC4zNzkgOTMuMjc0MkM1MjIuNzYgOTYuODQ1NSA1MjUuNTIyIDEwMS43MjIgNTI2LjY2MSAxMDcuOTA0TDUxMi42MTcgMTA5LjQzNEM1MTEuODM2IDEwNi40MzQgNTEwLjU0NiAxMDQuMDkyIDUwOC43NDYgMTAyLjQxMkM1MDYuOTQ0IDEwMC43MzEgNTA0LjEyMyA5OS44ODk2IDUwMC4yODMgOTkuODg5NkM0OTYuNTAxIDk5Ljg4OTYgNDkzLjQ1NCAxMDAuODIxIDQ5MS4xNDMgMTAyLjY4MUM0ODguODMyIDEwNC41NDEgNDg3LjE1MiAxMDcuMDkyIDQ4Ni4xMDIgMTEwLjMzM0M0ODUuMDUxIDExMy41NzQgNDg0LjUyNyAxMTcuMzI2IDQ4NC41MjcgMTIxLjU4OEM0ODQuNTI3IDEyOC42MSA0ODUuOTA2IDEzNC4wMTIgNDg4LjY2OCAxMzcuNzkzQzQ5MS40MjggMTQxLjU3NCA0OTUuODExIDE0My40NjYgNTAxLjgxMyAxNDMuNDY2QzUwNi43OTQgMTQzLjQ2NiA1MTAuOTk4IDE0Mi40MTUgNTE0LjQxOSAxNDAuMzE0VjEyOS43ODFINTAxLjkwM1YxMTguNTI2SDUyNy42NTNWMTQ2LjYxN0M1MjQuMjMxIDE0OS40OTggNTIwLjE4IDE1MS42OSA1MTUuNDk5IDE1My4xODlDNTEwLjgxNyAxNTQuNjg5IDUwNi4wNzUgMTU1LjQ0IDUwMS4yNzMgMTU1LjQ0QzQ5MS4yNDggMTU1LjQ0IDQ4My41MDYgMTUyLjUxNCA0NzguMDQ1IDE0Ni42NjJDNDcyLjU4MyAxNDAuODEgNDY5Ljg1MyAxMzIuNTQzIDQ2OS44NTMgMTIxLjg1OEw0NjkuODUxIDEyMS44NTlaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNTM3LjI4MyA4OS41MzhINTYxLjUwMkM1NjcuNTY0IDg5LjUzOCA1NzIuNDEgOTAuMzc5MyA1NzYuMDQyIDkyLjA1ODlDNTc5LjY3NCA5My43NDA1IDU4Mi4zIDk2LjA2NTMgNTgzLjkyIDk5LjAzNzRDNTg1LjU0MSAxMDIuMDA5IDU4Ni4zNTEgMTA1LjM4NSA1ODYuMzUxIDEwOS4xNjZDNTg2LjM1MSAxMTMuMjQ5IDU4NS41MSAxMTYuNzg5IDU4My44MyAxMTkuNzlDNTgyLjE0OSAxMjIuNzkxIDU3OS41NjggMTI1LjE5MSA1NzYuMDg3IDEyNi45OTJMNTg5LjUwMiAxNTMuODIxSDU3NC42NDdMNTYzLjM5MyAxMzAuMDUzQzU2Mi45MTIgMTMwLjA1MyA1NjIuNDMxIDEzMC4wNjkgNTYxLjk1MiAxMzAuMDk4QzU2MS40NzIgMTMwLjEyOSA1NjAuOTkyIDEzMC4xNDMgNTYwLjUxMiAxMzAuMTQzSDU1MC43ODhWMTUzLjgyMUg1MzcuMjgzVjg5LjUzOFpNNTcyLjY2NiAxMDkuNjE0QzU3Mi42NjYgMTA2LjYxNCA1NzEuNzk2IDEwNC4zNDcgNTcwLjA1NSAxMDIuODE3QzU2OC4zMTUgMTAxLjI4NyA1NjUuMTYyIDEwMC41MjEgNTYwLjYwMyAxMDAuNTIxSDU1MC43ODhWMTE5LjI0OUg1NjEuMTQzQzU2NS41ODQgMTE5LjI0OSA1NjguNjE2IDExOC40MjQgNTcwLjIzNiAxMTYuNzcyQzU3MS44NTcgMTE1LjEyMiA1NzIuNjY3IDExMi43MzYgNTcyLjY2NyAxMDkuNjE0SDU3Mi42NjZaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNTkyLjgzNSAxMjEuODU5QzU5Mi44MzUgMTE0LjY1NiA1OTQuMTA4IDEwOC41MiA1OTYuNjYgMTAzLjQ0N0M1OTkuMjExIDk4LjM3NjEgNjAyLjgyOCA5NC41MTk2IDYwNy41MSA5MS44Nzg3QzYxMi4xOTIgODkuMjM3NyA2MTcuNjg0IDg3LjkxNzIgNjIzLjk4NiA4Ny45MTcyQzYzMC4yODkgODcuOTE3MiA2MzUuNzUgODkuMjIyNyA2NDAuMzcyIDkxLjgzMzdDNjQ0Ljk5MyA5NC40NDM2IDY0OC41NSA5OC4yNDEgNjUxLjA0MSAxMDMuMjIzQzY1My41MzEgMTA4LjIwNiA2NTQuNzc4IDExNC4yNjggNjU0Ljc3OCAxMjEuNDA5QzY1NC43NzggMTI4LjYxMiA2NTMuNTE2IDEzNC43NSA2NTAuOTk2IDEzOS44MjFDNjQ4LjQ3NCAxNDQuODk0IDY0NC45MDMgMTQ4Ljc2NSA2NDAuMjgyIDE1MS40MzVDNjM1LjY2IDE1NC4xMDUgNjMwLjEzOCAxNTUuNDQyIDYyMy43MTUgMTU1LjQ0MkM2MTcuNDEzIDE1NS40NDIgNjExLjk1MSAxNTQuMTM2IDYwNy4zMjkgMTUxLjUyNUM2MDIuNzA3IDE0OC45MTQgNTk5LjEzNyAxNDUuMTE5IDU5Ni42MTUgMTQwLjEzNkM1OTQuMDk0IDEzNS4xNTUgNTkyLjgzNSAxMjkuMDYyIDU5Mi44MzUgMTIxLjg1OVpNNjA3LjYgMTIxLjY3OUM2MDcuNiAxMjguNDAyIDYwOC45NTEgMTMzLjY2OCA2MTEuNjUyIDEzNy40NzlDNjE0LjM1MyAxNDEuMjkyIDYxOC40MDQgMTQzLjE5NiA2MjMuODA2IDE0My4xOTZDNjI5LjE0NyAxNDMuMTk2IDYzMy4xODQgMTQxLjI5MiA2MzUuOTE1IDEzNy40NzlDNjM4LjY0NSAxMzMuNjY4IDY0MC4wMTEgMTI4LjQwMiA2NDAuMDExIDEyMS42NzlDNjQwLjAxMSAxMTQuOTU1IDYzOC42NDYgMTA5LjY5IDYzNS45MTUgMTA1Ljg3OEM2MzMuMTg0IDEwMi4wNjYgNjI5LjE0NiAxMDAuMTYxIDYyMy44MDYgMTAwLjE2MUM2MTguNDA0IDEwMC4xNjEgNjE0LjM1MyAxMDIuMDY2IDYxMS42NTIgMTA1Ljg3OEM2MDguOTUxIDEwOS42OSA2MDcuNiAxMTQuOTU3IDYwNy42IDEyMS42NzlaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNjYzLjIzOSAxMjcuNDQxVjg5LjUzN0g2NzcuNDY0VjEyOC4wNzFDNjc3LjQ2NCAxMzMuMTc0IDY3OC40MSAxMzYuOTcgNjgwLjMgMTM5LjQ2QzY4Mi4xOTIgMTQxLjk1MiA2ODUuMjY3IDE0My4xOTcgNjg5LjUzIDE0My4xOTdDNjkzLjkxIDE0My4xOTcgNjk3LjAwMyAxNDEuOTUyIDY5OC44MDMgMTM5LjQ2QzcwMC42MDQgMTM2Ljk3MSA3MDEuNTA0IDEzMy4xNzQgNzAxLjUwNCAxMjguMDcxVjg5LjUzN0g3MTUuNzI5VjEyNy42MkM3MTUuNzI5IDEzNy4wNDQgNzEzLjQ2NCAxNDQuMDM3IDcwOC45MzIgMTQ4LjU5OUM3MDQuNCAxNTMuMTYxIDY5Ny44NzIgMTU1LjQ0MSA2ODkuMzUgMTU1LjQ0MUM2ODAuODI4IDE1NS40NDEgNjc0LjM0NCAxNTMuMTc1IDY2OS45MDQgMTQ4LjY0NEM2NjUuNDYxIDE0NC4xMTMgNjYzLjI0MSAxMzcuMDQ0IDY2My4yNDEgMTI3LjQ0MUg2NjMuMjM5WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTcyNi4yNjMgODkuNTM4SDc0OS40MDFDNzU1LjU4MyA4OS41MzggNzYwLjUwNSA5MC4zOTMzIDc2NC4xNjggOTIuMTAzOUM3NjcuODI3IDkzLjgxMzUgNzcwLjQ3IDk2LjIxNDQgNzcyLjA5IDk5LjMwNTVDNzczLjcxMSAxMDIuMzk4IDc3NC41MjEgMTA2LjA0NCA3NzQuNTIxIDExMC4yNDZDNzc0LjUyMSAxMTQuNTY2IDc3My42OTYgMTE4LjMzNCA3NzIuMDQ1IDEyMS41NDVDNzcwLjM5NCAxMjQuNzU2IDc2Ny43MzcgMTI3LjI0NyA3NjQuMDc2IDEyOS4wMTdDNzYwLjQxNSAxMzAuNzg5IDc1NS41NTIgMTMxLjY3MyA3NDkuNDkxIDEzMS42NzNINzM5Ljk0OVYxNTMuODIxSDcyNi4yNjNWODkuNTM4Wk03NjEuMjg1IDExMC40MjVDNzYxLjI4NSAxMDcuMTI0IDc2MC40NDQgMTA0LjcwNyA3NTguNzY1IDEwMy4xNzdDNzU3LjA4MyAxMDEuNjQ2IDc1My45NjIgMTAwLjg4MSA3NDkuNDAxIDEwMC44ODFINzM5Ljk0OVYxMjAuMzI3SDc0OS40OTFDNzU0LjExMyAxMjAuMzI3IDc1Ny4yMzQgMTE5LjQ3MyA3NTguODU1IDExNy43NjJDNzYwLjQ3NSAxMTYuMDUyIDc2MS4yODUgMTEzLjYwNyA3NjEuMjg1IDExMC40MjVaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTQ2LjQ3NyA2OS4xNzU2QzE0Ni40NzcgMzEuNDQyOSAxMTUuODkgMC44NTQ3MzYgNzguMTU1OSAwLjg1NDczNkM0MC40MjIyIDAuODU0NzM2IDkuODMzMDEgMzEuNDQyOSA5LjgzMzAxIDY5LjE3NTZDOS44MzMwMSA4OS4zMzUgMTguNjE4MiAxMDcuNCAzMi41MDYzIDExOS45MDNDMzIuNDc4MyAxMTkuOTQ0IDMyLjQ2MTMgMTE5Ljk4OSAzMi40MzYzIDEyMC4wMjdMNzguMTQ2OSAxNTkuMDkzTDEyMy41MzggMTIwLjI5OEMxMjMuNTE2IDEyMC4yNjcgMTIzLjQ5NiAxMjAuMjM0IDEyMy40NzQgMTIwLjIwNkMxMzcuNTU0IDEwNy42OSAxNDYuNDc3IDg5LjQ5NzEgMTQ2LjQ3NyA2OS4xNzU2WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTAuODMwMjYxIDIyNC4zMTRMNzkzLjExOSAyMjQuMzE0VjIxNi44NzhMMC44MzAyNjEgMjE2Ljg3OFYyMjQuMzE0WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTQxNC4yNTQgMzU5LjIzN0M0MTEuNzAxIDM2MS4xMjMgNDEwLjQwMyAzNjQuMDA1IDQxMC40MDMgMzY3LjczMUM0MTAuNDAzIDM3MS40NTYgNDExLjY3NiAzNzQuMDczIDQxNC4xODUgMzc1Ljg3MUM0MTYuNzI0IDM3Ny42OSA0MjAuNTc5IDM3OC42MTIgNDI1LjY0MSAzNzguNjEyQzQzMi4yOTUgMzc4LjYxMiA0MzcgMzc3LjE4MiA0NDAuMDMxIDM3NC4yMzlDNDQxLjU5NCAzNzIuNzM4IDQ0Mi42MjggMzcwLjI0OCA0NDIuNjI4IDM2Mi45NzlWMzU2LjM2M0g0MjUuNTU3QzQyMC42MDYgMzU2LjM2MyA0MTYuODAzIDM1Ny4zNTYgNDE0LjI1IDM1OS4yMzdINDE0LjI1M0g0MTQuMjU0Wk0yMjguMDA1IDI4MS4wMzdWNDI1Ljg1NEg1NjUuOTQ0VjI4MS4wMzdIMjI4LjAwNVpNMzM0LjQ5OSAzMTkuNDQ0VjMyOC42OTlMMzMzLjk1MyAzMjguNjkyTDMwNS42MzcgMzI4LjUwN0wzMDUuNjY0IDM4Ni43ODRWMzg3LjZIMjk2LjI3MVYzMTkuNDQ0SDMzNC40OThIMzM0LjQ5OVpNMzU0Ljk5NSAzNzUuMDg0QzM1Ny41NDcgMzc3LjQwNSAzNjEuNDMgMzc4LjUzNCAzNjYuODgyIDM3OC41MzRDMzc0LjA0NyAzNzguNTM0IDM3OS4yMTkgMzc2LjE2OSAzODIuNjkzIDM3MS4zMDRMMzgzLjEwMiAzNzAuNzMyTDM4My42MTIgMzcxLjIxOUwzODkuNDUzIDM3Ni43ODlMMzg5Ljg1NCAzNzcuMTcxTDM4OS41MTQgMzc3LjYwOEMzODYuNTMyIDM4MS40MjggMzgzLjI1NSAzODQuMDI1IDM3OS40ODUgMzg1LjU1NEMzNzUuODUxIDM4Ni45OSAzNzEuOTk0IDM4Ny42MDEgMzY2LjU4IDM4Ny42MDFDMzU3LjYyMiAzODcuNjAxIDM1MS42NSAzODUuODc1IDM0Ny43NyAzODIuMTc0QzM0NC4wNyAzNzguNjQ1IDM0Mi4zNjQgMzczLjM1MSAzNDIuMzY0IDM2NS41MTVWMzM5LjQ0OUMzNDIuMzY0IDMzNC4zOTcgMzQzLjY0MSAzMzAuNjk1IDM0Ni41NDMgMzI3LjQ1NEMzNTAuMjc5IDMyMy4yODEgMzU2LjU5NSAzMjAuMjU3IDM2Mi4yNjggMzE5LjkzMUMzNjMuNDc3IDMxOS44MjkgMzY0Ljc2OCAzMTkuNzc2IDM2Ni4xMDEgMzE5Ljc3NkMzNjcuNzQ5IDMxOS43NzYgMzY5LjE1MiAzMTkuODIgMzcwLjM5MyAzMTkuOTE3QzM3Ny44NzggMzIwLjIyNCAzODMuMTI2IDMyMi4xNjkgMzg2LjkxMyAzMjYuMDQxQzM5MC4yMSAzMjkuNDI2IDM5MS42MTggMzMzLjM5MiAzOTEuNjE4IDMzOS4zMjdDMzkxLjYxOCAzNDUuNzIyIDM4OS44IDM1MC4yMzYgMzg1LjkgMzUzLjU2OUMzODEuODk2IDM1Ni45ODcgMzc2LjU3OSAzNTguNTQ3IDM2OS4xNzQgMzU4LjU0N0gzNTEuMzE5VjM2NC43MTNDMzUxLjMxOSAzNjkuNDM2IDM1Mi41MTQgMzcyLjgzMSAzNTQuOTk1IDM3NS4wODRaTTQ1MS41ODQgMzY3LjQ0M0M0NTEuNTg0IDM3Mi40OTggNDUwLjMwNyAzNzYuMTk3IDQ0Ny40MDMgMzc5LjQzOEM0NDMuNjY5IDM4My42MTIgNDM3LjM1MiAzODYuNjM4IDQzMS42NzkgMzg2Ljk2NEM0MzAuNDcxIDM4Ny4wNjMgNDI5LjE3OSAzODcuMTE2IDQyNy44NDYgMzg3LjExNkM0MjYuMTk3IDM4Ny4xMTYgNDI0Ljc5NSAzODcuMDY5IDQyMy41NTMgMzg2Ljk3MkM0MTYuMDY4IDM4Ni42NjUgNDEwLjgyIDM4NC43MTggNDA3LjAzNSAzODAuODQzQzQwMy43MzggMzc3LjQ1NyA0MDIuMzMgMzczLjQ4MyA0MDIuMzMgMzY3LjU1QzQwMi4zMyAzNjEuMTUyIDQwNC4xNDcgMzU2LjYyMiA0MDguMDQ4IDM1My4yODlDNDEyLjA1IDM0OS44NzEgNDE3LjM2NiAzNDguMjc4IDQyNC43NzMgMzQ4LjI3OEg0NDIuNjI2VjM0Mi4xODFDNDQyLjYyNiAzMzcuNDU4IDQ0MS40MzIgMzM0LjA2MyA0MzguOTUxIDMzMS44MDdDNDM2LjM5OCAzMjkuNDg2IDQzMi41MTcgMzI4LjM1NyA0MjcuMDY0IDMyOC4zNTdDNDE5LjkgMzI4LjM1NyA0MTQuNzI4IDMzMC43MjIgNDExLjI1NCAzMzUuNTg3TDQxMC44NDUgMzM2LjE1OUw0MTAuMzMyIDMzNS42NzJMNDA0LjQ5MyAzMzAuMTAyTDQwNC4wODkgMzI5LjcyTDQwNC40MjkgMzI5LjI4M0M0MDcuNDExIDMyNS40NjMgNDEwLjY4OSAzMjIuODY2IDQxNC40NTggMzIxLjMzN0M0MTguMDkyIDMxOS45MDEgNDIxLjk1MSAzMTkuMjkgNDI3LjM2NCAzMTkuMjlDNDM2LjMyMiAzMTkuMjkgNDQyLjI5NCAzMjEuMDE2IDQ0Ni4xNzQgMzI0LjcxN0M0NDkuODc1IDMyOC4yNDYgNDUxLjU4MSAzMzMuNTQgNDUxLjU4MSAzNDEuMzc2VjM2Ny40NDJINDUxLjU4NFYzNjcuNDQzWk00OTcuNjc1IDM4Ny42SDQ1OS40NDhWMzc4LjE5N0w0NTkuOTk1IDM3OC4yTDQ4OC4zMSAzNzguMzg1TDQ4OC4yODIgMzIwLjExMVYzMTkuNDQ1SDQ5Ny42NzRWMzg3LjYwMUw0OTcuNjc1IDM4Ny42Wk0zNzkuNjk1IDM0Ny42MjJDMzgyLjI0NSAzNDUuNzM2IDM4My41NDMgMzQyLjg5IDM4My41NDMgMzM5LjE2NEMzODMuNTQzIDMzNS40MzkgMzgyLjI3IDMzMi44MjIgMzc5Ljc2MSAzMzEuMDI0QzM3Ny4yMjIgMzI5LjIwNSAzNzMuMzY4IDMyOC4yODMgMzY4LjMwNCAzMjguMjgzQzM2MS42NSAzMjguMjgzIDM1Ni45NDcgMzI5LjcxMSAzNTMuOTE1IDMzMi42NTZDMzUyLjM1IDMzNC4xNTUgMzUxLjMxOCAzMzYuNjQ3IDM1MS4zMTggMzQzLjkxNlYzNTAuNDYySDM2OC4zODlDMzczLjMzOSAzNTAuNDYyIDM3Ny4xNDIgMzQ5LjUwNSAzNzkuNjk1IDM0Ny42MjJaIiBmaWxsPSJ3aGl0ZSIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzM1M182NyI+CjxyZWN0IHdpZHRoPSI3OTIuMjg5IiBoZWlnaHQ9IjQyNSIgZmlsbD0id2hpdGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuODMwMDc4IDAuODU0OTgpIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==" alt="The Perry Group | Real Broker, LLC" width="794" height="426"></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var STORE = "before-you-build-v1";
+  var data = {};
+  try { data = JSON.parse(localStorage.getItem(STORE) || "{}") || {}; } catch (e) { data = {}; }
+  function save() { try { localStorage.setItem(STORE, JSON.stringify(data)); } catch (e) {} }
+
+  // Build the ruled write-in tables
+  document.querySelectorAll("table.write").forEach(function (t) {
+    var name = t.dataset.table, rows = +t.dataset.rows, tick = t.dataset.tick;
+    var cols = t.querySelectorAll("thead th").length;
+    var body = t.querySelector("tbody");
+    var preset = (t.dataset.preset || "").split("|");
+    for (var r = 0; r < rows; r++) {
+      var tr = document.createElement("tr");
+      for (var c = 0; c < cols; c++) {
+        var td = document.createElement("td");
+        var head = t.querySelectorAll("thead th")[c].textContent;
+        if (c === 0 && preset[r]) {
+          var txt = document.createElement("span");
+          txt.className = "preset";
+          txt.textContent = preset[r];
+          td.appendChild(txt);
+        } else if (tick && c === cols - 1) {
+          td.className = "tick";
+          var cb = document.createElement("input");
+          cb.type = "checkbox";
+          cb.dataset.key = name + "_" + r + "_" + c;
+          cb.setAttribute("aria-label", head + ", row " + (r + 1));
+          td.appendChild(cb);
+        } else {
+          var inp = document.createElement("input");
+          inp.type = "text";
+          inp.className = "cell";
+          inp.dataset.key = name + "_" + r + "_" + c;
+          inp.setAttribute("aria-label", head + ", row " + (r + 1));
+          td.appendChild(inp);
+        }
+        tr.appendChild(td);
+      }
+      body.appendChild(tr);
+    }
+  });
+
+  var fields = document.querySelectorAll("[data-key]");
+  var main = document.querySelectorAll(".item input[type=checkbox]");
+
+  function updateProgress() {
+    var done = 0;
+    main.forEach(function (cb) {
+      cb.closest(".item").classList.toggle("done", cb.checked);
+      if (cb.checked) done++;
+    });
+    document.getElementById("progressFill").style.width = (done / main.length * 100) + "%";
+    document.getElementById("progressLabel").textContent = done + " of " + main.length + " done";
+  }
+
+  fields.forEach(function (el) {
+    var k = el.dataset.key;
+    if (el.type === "checkbox") {
+      el.checked = !!data[k];
+      el.addEventListener("change", function () { data[k] = el.checked; save(); updateProgress(); });
+    } else {
+      el.value = data[k] || "";
+      el.addEventListener("input", function () { data[k] = el.value; save(); });
+    }
+  });
+  updateProgress();
+
+  document.getElementById("printBtn").addEventListener("click", function () { window.print(); });
+  document.getElementById("clearBtn").addEventListener("click", function () {
+    if (!confirm("Clear every check and note on this page?")) return;
+    data = {}; save();
+    fields.forEach(function (el) { if (el.type === "checkbox") el.checked = false; else el.value = ""; });
+    updateProgress();
+  });
+})();
+</script>
+</body>
+</html>
