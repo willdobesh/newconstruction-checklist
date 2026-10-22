@@ -40,6 +40,7 @@ a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .hl-line{border:2px solid rgba(255,255,255,.7);color:var(--white)}
 .hl-line:hover{background:var(--white);color:var(--black)}
 .hero-photo{align-self:end;justify-self:end;width:100%;max-width:360px}
+.hero-mphoto{display:none}
 .hero-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top}
 
 /* Path tiles */
@@ -116,6 +117,8 @@ a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 @media (max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:0}
   .hero-photo{display:none}
+  .hero-mphoto{display:flex;align-items:center;gap:14px;margin:0 0 22px}
+  .hero-mphoto img{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gold)}
   .local-grid{grid-template-columns:1fr;gap:48px}
   .about-grid{grid-template-columns:1fr;gap:28px}
   .about-photo img{width:200px}
@@ -220,7 +223,8 @@ a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
     <div class="hero-copy">
       <p class="eyebrow">Will Dobesh &middot; The Perry Group | Real Broker LLC</p>
       <h1>Utah County homes, <em>new and resale.</em></h1>
-      <p class="lead">I spent 3 years on the builder side running 5 new construction communities. Now I represent buyers and sellers all over Utah County, with a home base in South County.</p>
+      <div class="hero-mphoto"><img src="New%20Construction%20Checklist/Marketing%202026/Head%20Shot%202026%2CWill%20Dobesh.jpg" alt="Will Dobesh" onerror="this.parentElement.remove()"></div>
+      <p class="lead">Since 2018, I've helped clients navigate the Utah County real estate market with practical advice, honest communication, and a commitment to their goals. From existing homes to new construction, my experience allows me to anticipate challenges, identify opportunities, and help you make decisions that serve your long-term interests.</p>
       <div class="hero-links">
         <a class="hl hl-gold" href="#paths">Explore the site</a>
         <a class="hl hl-line" href="home-value.html?from=home">What's my home worth?</a>
@@ -252,7 +256,7 @@ a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
           <div class="tile-body">
             <p class="tile-tag">Communities</p>
             <h3>Model homes and builder deals</h3>
-            <p>The 13 builders I track from Springville to Santaquin, their communities, and what each one is offering right now.</p>
+            <p>The 13 builders I track from Springville to Santaquin, their communities, and what incentives each one is offering right now.</p>
             <span class="tile-go">See builders and incentives &rarr;</span>
           </div>
         </a>
@@ -356,7 +360,7 @@ a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
       </div>
       <div class="c-btns">
         <a class="cb" href="sms:+18014007976?&amp;body=Hi%20Will%2C%20I%20found%20your%20site%20and%20had%20a%20question%20about%20">Text Will</a>
-        <a class="cb" href="mailto:will.dobesh@theperry.group?subject=Question%20from%20your%20website&amp;body=Hi%20Will%2C%0A%0AI%20found%20your%20site%20and%20had%20a%20question.%0A%0AMy%20name%3A%20%0ABest%20phone%20number%3A%20%0AWhat%20I%27m%20looking%20for%3A%20%0A%0AThank%20you">Email Will</a>
+        <a class="cb" href="mailto:will.dobesh@theperry.group?subject=Question%20from%20your%20website&amp;body=Hi%20Will%2C%0D%0A%0D%0AI%20found%20your%20site%20and%20had%20a%20question.%0D%0A%0D%0AMy%20name%3A%20%0D%0ABest%20phone%20number%3A%20%0D%0AWhat%20I%27m%20looking%20for%3A%20%0D%0A%0D%0AThank%20you">Email Will</a>
       </div>
     </div>
   </section>
